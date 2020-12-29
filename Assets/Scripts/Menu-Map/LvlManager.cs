@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LvlController : MonoBehaviour
+public class LvlManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void OnMouseDown(){

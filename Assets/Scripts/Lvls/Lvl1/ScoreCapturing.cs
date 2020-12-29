@@ -21,12 +21,12 @@ public class ScoreCapturing : MonoBehaviour
         switch (gameObject.tag) {
             case "Home":
                 if (col.gameObject.CompareTag("Home")){
-                    Debug.Log("Made it");
+                    col.gameObject.SetActive(false);
                 }
             break;
             case "Dona":
                 if (col.gameObject.CompareTag("Dona")){
-                        Debug.Log("Made it");
+                    col.gameObject.SetActive(false);
                 }
             break;
         }
