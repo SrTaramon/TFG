@@ -5,32 +5,38 @@ using UnityEngine;
 public class LvlA : MonoBehaviour
 {
 
-    public List<GameObject> imgs;
+    public List<GameObject> cards;
 
-    public Transform start;
+    private GameObject activeCard;
+
+    public static bool active;
+
+    public static int cardCount;
+
+    private int previousCount;
 
     void Start(){
 
-        for (int i = 0; i < imgs.Count; ++i){
-            GameObject temp = imgs[i];
-            int randomIndex = Random.Range(i, imgs.Count);
-            imgs[i] = imgs[randomIndex];
-            imgs[randomIndex] = temp;
+        cardCount = 0;
+        previousCount = 0;
+
+        for (int i = 0; i < cards.Count; ++i){
+            GameObject temp = cards[i];
+            int randomIndex = Random.Range(i, cards.Count);
+            cards[i] = cards[randomIndex];
+            cards[randomIndex] = temp;
         }
 
-        imgs[0].transform.position = start.position;
-        imgs[0].SetActive(true);
+        activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
+        active = true;
     }
 
     void Update(){
-
-        for (int i = 5; i > 0; --i){
-            if (!imgs[0].activeSelf){
-                imgs.RemoveAt(0);
-                imgs[0].transform.position = start.position;
-                imgs[0].SetActive(true);
-            }
+        if (!active && (cardCount != previousCount) && (cardCount < cards.Count)){
+            Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
+            ++previousCount;
         }
+
     }
    
 }

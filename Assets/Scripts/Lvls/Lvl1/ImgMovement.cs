@@ -32,6 +32,10 @@ public class ImgMovement : MonoBehaviour
                 rigidbody.velocity = Vector2.zero;
             }
         }*/
+        transform.position = new Vector2(
+          Mathf.Clamp(transform.position.x, -8.8f, 8.8f),
+          Mathf.Clamp(transform.position.y, -3.5f, 3.5f)  
+        );
     }
 
 
