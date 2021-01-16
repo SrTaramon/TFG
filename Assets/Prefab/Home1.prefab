@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 303100940898469034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.214907, y: 4.024484, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3fe23fed9b7d4644196c5e46194f0a57, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 2030525857544276935, guid: 011768e0e3a9aee49a1377f5e6429f09, type: 3}
+  m_Color: {r: 0.28368637, g: 0.548487, b: 0.8018868, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 24.011036, y: 10.200001}
+    oldSize: {x: 5.01, y: 8.59}
     newSize: {x: 24.011036, y: 10.200001}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
