@@ -34,7 +34,7 @@ public class ImgMovement : MonoBehaviour
         }*/
         transform.position = new Vector2(
           Mathf.Clamp(transform.position.x, -8.8f, 8.8f),
-          Mathf.Clamp(transform.position.y, -3.5f, 3.5f)  
+          Mathf.Clamp(transform.position.y, -1.6f, 1.6f)  
         );
     }
 

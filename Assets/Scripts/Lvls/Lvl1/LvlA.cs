@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LvlA : MonoBehaviour
 {
@@ -15,8 +16,13 @@ public class LvlA : MonoBehaviour
 
     private int previousCount;
 
+    private float time;
+
+    public TextMeshProUGUI  timer;
+
     void Start(){
 
+        time = 0;
         cardCount = 0;
         previousCount = 0;
 
@@ -37,6 +43,12 @@ public class LvlA : MonoBehaviour
             ++previousCount;
         }
 
+        time += Time.deltaTime;
+
+        int min = Mathf.FloorToInt(time / 60);
+        int sec = Mathf.FloorToInt(time % 60);
+        timer.GetComponent<TextMeshProUGUI>().SetText(min.ToString("00") + ":" + sec.ToString("00"));
+        
     }
    
 }
