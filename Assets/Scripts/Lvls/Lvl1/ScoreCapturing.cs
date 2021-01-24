@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScoreCapturing : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +22,16 @@ public class ScoreCapturing : MonoBehaviour
         switch (gameObject.tag) {
             case "Home":
                 if (col.gameObject.CompareTag("Home")){
-                    Destroy(col.gameObject);
+                    ImgMovement.animation = true;
+                    Destroy(col.gameObject, 3f);
                     LvlA.active = false;
                     ++LvlA.cardCount;
                 }
             break;
             case "Dona":
                 if (col.gameObject.CompareTag("Dona")){
-                    Destroy(col.gameObject);
+                    ImgMovement.animation = true;
+                    Destroy(col.gameObject, 3f);
                     LvlA.active = false;
                     ++LvlA.cardCount;
                 }

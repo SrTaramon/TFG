@@ -39,6 +39,7 @@ public class LvlA : MonoBehaviour
 
     void Update(){
         if (!active && (cardCount != previousCount) && (cardCount < cards.Count)){
+            //ImgMovement.animation = false;
             Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
             ++previousCount;
         }

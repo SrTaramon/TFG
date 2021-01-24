@@ -12,10 +12,16 @@ public class ImgMovement : MonoBehaviour
     private Vector3 direction;
 
     private float speed = 10f;
+
+    public static bool animation;
+
+    Animator correct;
     // Start is called before the first frame update
     void Start()
     {
+        animation = false;
         rigidbody = GetComponent<Rigidbody2D>();
+        correct = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +42,10 @@ public class ImgMovement : MonoBehaviour
           Mathf.Clamp(transform.position.x, -8.8f, 8.8f),
           Mathf.Clamp(transform.position.y, -1.6f, 1.6f)  
         );
+
+        if (animation){
+            correct.SetBool("point", true);
+        }
     }
 
 
