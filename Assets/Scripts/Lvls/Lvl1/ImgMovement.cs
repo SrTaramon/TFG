@@ -7,21 +7,22 @@ public class ImgMovement : MonoBehaviour
     private Vector3 touchPosition;
 
     private Vector3 offset;
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
 
     private Vector3 direction;
 
-    private float speed = 10f;
+    //private float speed = 10f;
 
-    public static bool animation;
+    public static bool correct, error;
 
-    Animator correct;
+    Animator aniContl;
     // Start is called before the first frame update
     void Start()
     {
-        animation = false;
-        rigidbody = GetComponent<Rigidbody2D>();
-        correct = GetComponent<Animator>();
+        correct = false;
+        error = false;
+        rb = GetComponent<Rigidbody2D>();
+        aniContl = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,10 +33,10 @@ public class ImgMovement : MonoBehaviour
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0;
             direction = (touchPosition - transform.position);
-            rigidbody.velocity = new Vector2(direction.x, direction.y) * speed;
+            rb.velocity = new Vector2(direction.x, direction.y) * speed;
 
             if (touch.phase == TouchPhase.Ended){
-                rigidbody.velocity = Vector2.zero;
+                rb.velocity = Vector2.zero;
             }
         }*/
         transform.position = new Vector2(
@@ -43,8 +44,12 @@ public class ImgMovement : MonoBehaviour
           Mathf.Clamp(transform.position.y, -1.6f, 1.6f)  
         );
 
-        if (animation){
-            correct.SetBool("point", true);
+        if (correct){
+            aniContl.SetBool("point", true);
+            aniContl.SetBool("error", false);
+        } else if (error){
+            aniContl.SetBool("error", true);
+            aniContl.SetBool("point", false);
         }
     }
 
