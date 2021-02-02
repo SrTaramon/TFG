@@ -1,0 +1,400 @@
+fileFormatVersion: 2
+guid: 4049f945de51ddd4ea64caef605b6eaa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 664247523374593676
+    second: _ogosicons2_0
+  - first:
+      213: -5416185184620680279
+    second: _ogosicons2_1
+  - first:
+      213: 8059505017494610024
+    second: _ogosicons2_2
+  - first:
+      213: 6193879406152836210
+    second: _ogosicons2_3
+  - first:
+      213: -8998900490525154286
+    second: _ogosicons2_4
+  - first:
+      213: -2807503270576578609
+    second: _ogosicons2_5
+  - first:
+      213: 7716658945791484449
+    second: _ogosicons2_6
+  - first:
+      213: -7571763471082953980
+    second: _ogosicons2_7
+  - first:
+      213: 4632679830708392570
+    second: _ogosicons2_8
+  - first:
+      213: 379126215130350682
+    second: _ogosicons2_9
+  - first:
+      213: -3847329297653419793
+    second: _ogosicons2_10
+  - first:
+      213: 4848369168148947539
+    second: _ogosicons2_11
+  - first:
+      213: -6921759884122582816
+    second: _ogosicons2_12
+  - first:
+      213: -4008428530115910234
+    second: _ogosicons2_13
+  - first:
+      213: 1329550200704459672
+    second: _ogosicons2_14
+  - first:
+      213: -1099602440165663737
+    second: _ogosicons2_15
+  - first:
+      213: -5786355318343051601
+    second: _ogosicons2_16
+  - first:
+      213: 3859649048947513979
+    second: _ogosicons2_17
+  - first:
+      213: -3409070658309637270
+    second: _ogosicons2_18
+  - first:
+      213: -688141340160582978
+    second: _ogosicons2_19
+  - first:
+      213: 6612632996467380592
+    second: _ogosicons2_20
+  - first:
+      213: 3805399746170221645
+    second: _ogosicons2_21
+  - first:
+      213: -3090020169848923531
+    second: _ogosicons2_22
+  - first:
+      213: 7677365901787855285
+    second: _ogosicons2_23
+  - first:
+      213: 6602769870209049090
+    second: _ogosicons2_24
+  - first:
+      213: -7312949896135629708
+    second: _ogosicons2_25
+  - first:
+      213: -3748019243705298155
+    second: _ogosicons2_26
+  - first:
+      213: -976833771526477417
+    second: _ogosicons2_27
+  - first:
+      213: 5026854340753142169
+    second: _ogosicons2_28
+  - first:
+      213: -9063893961623749694
+    second: _ogosicons2_29
+  - first:
+      213: 7596013181315084861
+    second: _ogosicons2_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _ogosicons2_0
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 805
+        width: 180
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86fca96a91e73900800000000000000
+      internalID: 664247523374593676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_1
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 808
+        width: 179
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab63f05548d5d4b0800000000000000
+      internalID: -5416185184620680279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_6
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 772
+        width: 232
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122edb43d64171b60800000000000000
+      internalID: 7716658945791484449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_13
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 455
+        width: 142
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a566ea4d733f58c0800000000000000
+      internalID: -4008428530115910234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 470
+        width: 212
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70cd5c7186d6db0f0800000000000000
+      internalID: -1099602440165663737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_19
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 470
+        width: 193
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba9778d81b3376f0800000000000000
+      internalID: -688141340160582978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_21
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 81
+        width: 161
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4476d248ee7fc430800000000000000
+      internalID: 3805399746170221645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_25
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 82
+        width: 248
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4742b9ca0de238a90800000000000000
+      internalID: -7312949896135629708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogosicons2_30
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 101
+        width: 238
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3278753eb57a6960800000000000000
+      internalID: 7596013181315084861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

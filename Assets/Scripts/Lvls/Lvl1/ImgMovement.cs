@@ -13,7 +13,7 @@ public class ImgMovement : MonoBehaviour
 
     //private float speed = 10f;
 
-    public static bool correct, error;
+    public static bool correct, error, alive;
 
     Animator aniContl;
     // Start is called before the first frame update
@@ -21,6 +21,7 @@ public class ImgMovement : MonoBehaviour
     {
         correct = false;
         error = false;
+        alive = true;
         rb = GetComponent<Rigidbody2D>();
         aniContl = GetComponent<Animator>();
     }
@@ -28,17 +29,6 @@ public class ImgMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.touchCount > 0){
-            Touch touch = Input.GetTouch(0);
-            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0;
-            direction = (touchPosition - transform.position);
-            rb.velocity = new Vector2(direction.x, direction.y) * speed;
-
-            if (touch.phase == TouchPhase.Ended){
-                rb.velocity = Vector2.zero;
-            }
-        }*/
         transform.position = new Vector2(
           Mathf.Clamp(transform.position.x, -8.8f, 8.8f),
           Mathf.Clamp(transform.position.y, -1.6f, 1.6f)  
@@ -64,10 +54,10 @@ public class ImgMovement : MonoBehaviour
 
      void OnMouseDrag()
     {
-    Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, touchPosition.z);
-    
-    Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-    transform.position = curPosition;
-    
+        if (alive){
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, touchPosition.z);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+            transform.position = curPosition;
+        }
     }
 }

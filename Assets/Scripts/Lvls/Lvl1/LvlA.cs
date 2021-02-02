@@ -69,6 +69,7 @@ public class LvlA : MonoBehaviour
             case 2:
                 updateScore(min, sec, points, errors);
                 outro.SetActive(true);
+                PlayerPrefs.SetInt("LvlA", 1);
                 break;
             default:
                 break;
