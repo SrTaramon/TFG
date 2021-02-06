@@ -26,6 +26,8 @@ public class LvlA : MonoBehaviour
 
     public GameObject intro, action, outro, star1, star2, star3;
 
+    private bool done;
+
     void Start(){
 
         time = 0;
@@ -52,6 +54,7 @@ public class LvlA : MonoBehaviour
         intro.SetActive(false);
         activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
         active = true;
+        done = true;
         state = 1;
     }
 
@@ -88,15 +91,26 @@ public class LvlA : MonoBehaviour
 
     private void gameAction() {
 
-        if (!active && (cardCount != previousCount) && (cardCount < cards.Count)){
-            Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
-            ++previousCount;
+        if (!active && (cardCount != previousCount) && (cardCount < 9) && done){
+            done = false;
+            StartCoroutine(waitForCardDisappear());
+            //Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
+            //++previousCount;
         }
 
-        if (cardCount == cards.Count){
+        if (cardCount == 9){
             StartCoroutine(waitForLastAnimation());
             
         }
+    }
+
+    IEnumerator waitForCardDisappear(){
+
+        yield return new WaitForSeconds(3);
+
+        Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
+        done = true;
+        ++previousCount;
     }
 
     IEnumerator waitForLastAnimation(){
@@ -113,13 +127,13 @@ public class LvlA : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (points >= 4) { //1 estrella
+        if (points >= 3) { //1 estrella
             star1.SetActive(true);
         }
-        if (points >= 10) { //2 estrellas
+        if (points >= 7) { //2 estrellas
             star2.SetActive(true);
         }
-        if (points == 17) { //3 estrellas
+        if (points == 10) { //3 estrellas
             star3.SetActive(true);
         }
         

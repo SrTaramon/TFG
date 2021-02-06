@@ -36,16 +36,10 @@ public class ScoreCapturing : MonoBehaviour
 
     public void destroyCard(Collider2D col){
         col.GetComponent<BoxCollider2D>().enabled = !col.GetComponent<BoxCollider2D>().enabled;
-        StartCoroutine(stopMovement());
+        ImgMovement.alive = false;
+        Debug.Log(ImgMovement.alive);
         Destroy(col.gameObject, 3f);
         LvlA.active = false;
         ++LvlA.cardCount;
-    }
-
-    IEnumerator stopMovement(){
-
-        yield return new WaitForSeconds(1);
-
-        ImgMovement.alive = false;
     }
 }

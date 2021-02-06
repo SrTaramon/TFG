@@ -52,8 +52,7 @@ public class ImgMovement : MonoBehaviour
  
     }
 
-     void OnMouseDrag()
-    {
+     void OnMouseDrag(){
         if (alive){
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, touchPosition.z);
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
