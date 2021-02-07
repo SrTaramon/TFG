@@ -28,6 +28,8 @@ public class LvlA : MonoBehaviour
 
     private bool done;
 
+    public ParticleSystem ps;
+
     void Start(){
 
         time = 0;
@@ -38,6 +40,9 @@ public class LvlA : MonoBehaviour
         state = 0;
 
         intro.SetActive(true);
+
+        ps.Stop();
+        ps.enableEmission = false;
         
     }
 
@@ -94,8 +99,6 @@ public class LvlA : MonoBehaviour
         if (!active && (cardCount != previousCount) && (cardCount < 9) && done){
             done = false;
             StartCoroutine(waitForCardDisappear());
-            //Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
-            //++previousCount;
         }
 
         if (cardCount == 9){
@@ -106,9 +109,13 @@ public class LvlA : MonoBehaviour
 
     IEnumerator waitForCardDisappear(){
 
+        ps.Play();
+        ps.enableEmission = true;
+
         yield return new WaitForSeconds(3);
 
         Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
+        
         done = true;
         ++previousCount;
     }

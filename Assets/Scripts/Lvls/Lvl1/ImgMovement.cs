@@ -29,6 +29,7 @@ public class ImgMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.position = new Vector2(
           Mathf.Clamp(transform.position.x, -8.8f, 8.8f),
           Mathf.Clamp(transform.position.y, -1.6f, 1.6f)  

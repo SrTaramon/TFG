@@ -1,0 +1,742 @@
+fileFormatVersion: 2
+guid: 8a409415b2a45f24da3514b587b9870c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3236185255369983377
+    second: _ogos2_0
+  - first:
+      213: -376178178214894150
+    second: _ogos2_1
+  - first:
+      213: -3797467044987004937
+    second: _ogos2_2
+  - first:
+      213: 7338569490530860767
+    second: _ogos2_3
+  - first:
+      213: -6959477648080700211
+    second: _ogos2_4
+  - first:
+      213: -4817739327686717189
+    second: _ogos2_5
+  - first:
+      213: 3856380841276732707
+    second: _ogos2_6
+  - first:
+      213: 8069985722039404178
+    second: _ogos2_7
+  - first:
+      213: 1757080305278766298
+    second: _ogos2_8
+  - first:
+      213: -3851496667824270474
+    second: _ogos2_9
+  - first:
+      213: 1778379823689357881
+    second: _ogos2_10
+  - first:
+      213: -4630272978323738882
+    second: _ogos2_11
+  - first:
+      213: -3010562251683274401
+    second: _ogos2_12
+  - first:
+      213: -1360135090217832837
+    second: _ogos2_13
+  - first:
+      213: 6520299436157032452
+    second: _ogos2_14
+  - first:
+      213: 343903369501840391
+    second: _ogos2_15
+  - first:
+      213: -7715335694084190248
+    second: _ogos2_16
+  - first:
+      213: 6432394446661482909
+    second: _ogos2_17
+  - first:
+      213: -4751265543872010781
+    second: _ogos2_18
+  - first:
+      213: -4256630572308709493
+    second: _ogos2_19
+  - first:
+      213: -7022718943344803602
+    second: _ogos2_20
+  - first:
+      213: -5260845338335104736
+    second: _ogos2_21
+  - first:
+      213: 6257384004357953842
+    second: _ogos2_22
+  - first:
+      213: 3867337201594937631
+    second: _ogos2_23
+  - first:
+      213: 318374779750958204
+    second: _ogos2_24
+  - first:
+      213: -4166543742783093645
+    second: _ogos2_25
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _ogos2_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 965
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1954fadf75d39ec20800000000000000
+      internalID: 3236185255369983377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_1
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 965
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab56f33a0fb87caf0800000000000000
+      internalID: -376178178214894150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_2
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 965
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f71c49a7dfac4bc0800000000000000
+      internalID: -3797467044987004937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_3
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 684
+        width: 405
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde7c9af116d7d560800000000000000
+      internalID: 7338569490530860767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_4
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 819
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dccf0e3b3f7fa6f90800000000000000
+      internalID: -6959477648080700211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_5
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 818
+        width: 139
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0ddc06b93f32db0800000000000000
+      internalID: -4817739327686717189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_6
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 819
+        width: 139
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325fbe271fd948530800000000000000
+      internalID: 3856380841276732707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_7
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 672
+        width: 139
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29602a0f1495eff60800000000000000
+      internalID: 8069985722039404178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 671
+        width: 138
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adcc9fd6a37626810800000000000000
+      internalID: 1757080305278766298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_9
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 672
+        width: 139
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673dbbccf2cbc8ac0800000000000000
+      internalID: -3851496667824270474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_10
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 519
+        width: 143
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ad9b207031ea810800000000000000
+      internalID: 1778379823689357881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_11
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 520
+        width: 143
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe6ce92247fdbfb0800000000000000
+      internalID: -4630272978323738882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_12
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 521
+        width: 137
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51e73e25955836d0800000000000000
+      internalID: -3010562251683274401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_13
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 234
+        width: 424
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ea50d7754df1de0800000000000000
+      internalID: -1360135090217832837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_14
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 361
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408d1598ac1cc7a50800000000000000
+      internalID: 6520299436157032452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_15
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 361
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7049730ea4ac5c400800000000000000
+      internalID: 343903369501840391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_16
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 361
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df4837501f9de490800000000000000
+      internalID: -7715335694084190248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 214
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99f3704ba4744950800000000000000
+      internalID: 6432394446661482909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_18
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 214
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5a4ff392d101eb0800000000000000
+      internalID: -4751265543872010781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_19
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 214
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8fb87d0c096de4c0800000000000000
+      internalID: -4256630572308709493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_20
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 11
+        width: 123
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0c688345a4a8e90800000000000000
+      internalID: -7022718943344803602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_21
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 130
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0213446b909bdf6b0800000000000000
+      internalID: -5260845338335104736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_22
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 34
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23997f25991b6d650800000000000000
+      internalID: 6257384004357953842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_23
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 35
+        width: 405
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1138bfd1ba8ba530800000000000000
+      internalID: 3867337201594937631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_24
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 83
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74cf74ec281b6400800000000000000
+      internalID: 318374779750958204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ogos2_25
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 35
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374894e8a867d26c0800000000000000
+      internalID: -4166543742783093645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
