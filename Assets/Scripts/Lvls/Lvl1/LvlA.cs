@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -19,12 +20,12 @@ public class LvlA : MonoBehaviour
 
     private float time;
 
-    public TextMeshProUGUI  timer, finalTime;
+    public Text  timer, finalTime;
 
     private int min, sec;
-    private int state; //0 = intro, 1 = game, 2 = outro
+    private int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
 
-    public GameObject intro, action, outro, star1, star2, star3;
+    public GameObject action, outro, introexp, tutorial, star1, star2, star3;
 
     private bool done;
 
@@ -39,10 +40,17 @@ public class LvlA : MonoBehaviour
         errors = 0;
         state = 0;
 
-        intro.SetActive(true);
+        introexp.SetActive(true);
 
         ps.Stop();
         ps.enableEmission = false;
+        
+    }
+
+    public void startTutorial(){
+
+        state = 1;
+        introexp.SetActive(false);
         
     }
 
@@ -56,11 +64,11 @@ public class LvlA : MonoBehaviour
             cards[randomIndex] = temp;
         }
 
-        intro.SetActive(false);
+        tutorial.SetActive(false);
         activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
         active = true;
         done = true;
-        state = 1;
+        state = 2;
     }
 
     //Consultem l'estat en que ens trobem
@@ -71,10 +79,13 @@ public class LvlA : MonoBehaviour
                 Start();
                 break;
             case 1:
+                tutorial.SetActive(true);
+                break;
+            case 2:
                 action.SetActive(true);
                 gameAction();
                 break;
-            case 2:
+            case 3:
                 updateScore(min, sec, points, errors);
                 outro.SetActive(true);
                 PlayerPrefs.SetInt("LvlA", 1);
@@ -84,12 +95,12 @@ public class LvlA : MonoBehaviour
         }
 
         //Timer
-        if (state != 2){
+        if (state == 2){
              time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
             sec = Mathf.FloorToInt(time % 60);
-            timer.GetComponent<TextMeshProUGUI>().SetText(min.ToString("00") + ":" + sec.ToString("00"));
+            timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
         
     }
@@ -125,7 +136,7 @@ public class LvlA : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         action.SetActive(false);
-        state = 2;
+        state = 3;
     }
 
     public void endLvl(){
@@ -144,7 +155,7 @@ public class LvlA : MonoBehaviour
             star3.SetActive(true);
         }
         
-        finalTime.GetComponent<TextMeshProUGUI>().SetText(min.ToString("00") + ":" + sec.ToString("00"));
+        finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
     }
    
 }
