@@ -23,11 +23,11 @@ public class LvlA : MonoBehaviour
     public Text  timer, finalTime;
 
     private int min, sec;
-    private int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
+    public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
 
-    public GameObject action, outro, introexp, tutorial, star1, star2, star3;
+    public GameObject action, outro, pause, introexp, tutorial, star1, star2, star3;
 
-    private bool done;
+    private bool done, restart;
 
     public ParticleSystem ps;
 
@@ -39,6 +39,8 @@ public class LvlA : MonoBehaviour
         points = 0;
         errors = 0;
         state = 0;
+
+        restart = false;
 
         introexp.SetActive(true);
 
@@ -64,8 +66,17 @@ public class LvlA : MonoBehaviour
             cards[randomIndex] = temp;
         }
 
+        time = 0;
+        cardCount = 0;
+        previousCount = 0;
+        points = 0;
+        errors = 0;
         tutorial.SetActive(false);
-        activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
+
+        if (!restart){
+            activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
+        }
+
         active = true;
         done = true;
         state = 2;
@@ -86,6 +97,10 @@ public class LvlA : MonoBehaviour
                 gameAction();
                 break;
             case 3:
+                action.SetActive(false);
+                pause.SetActive(true);
+                break;
+            case 4:
                 updateScore(min, sec, points, errors);
                 outro.SetActive(true);
                 PlayerPrefs.SetInt("LvlA", 1);
@@ -107,15 +122,17 @@ public class LvlA : MonoBehaviour
 
     private void gameAction() {
 
-        if (!active && (cardCount != previousCount) && (cardCount < 9) && done){
+        if (!active && (cardCount != previousCount) && (cardCount < 10) && done){
             done = false;
             StartCoroutine(waitForCardDisappear());
         }
 
-        if (cardCount == 9){
+        if (cardCount == 10){
             StartCoroutine(waitForLastAnimation());
             
         }
+
+        restart = false;
     }
 
     IEnumerator waitForCardDisappear(){
@@ -136,11 +153,22 @@ public class LvlA : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         action.SetActive(false);
-        state = 3;
+        state = 4;
     }
 
     public void endLvl(){
         SceneManager.LoadScene("Map");
+    }
+
+    public void backToLvl(){
+        pause.SetActive(false);
+        state = 2;
+    }
+
+    public void restartLvl(){
+        pause.SetActive(false);
+        restart = true;
+        startGame();
     }
 
     public void updateScore(int min, int sec, int points, int errors){
