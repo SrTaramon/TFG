@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-public class LvlA : MonoBehaviour
+public class Lvl2 : MonoBehaviour
 {
-
-    public List<GameObject> cards;
+    public List<GameObject> peces, initialPos;
 
     private GameObject activeCard;
 
@@ -25,27 +23,17 @@ public class LvlA : MonoBehaviour
     private int min, sec;
     public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
 
-    public GameObject action, outro, pause, introexp, tutorial, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
 
     private bool done, restart;
-
-    public ParticleSystem ps;
 
     void Start(){
 
         time = 0;
-        cardCount = 0;
-        previousCount = 0;
-        points = 0;
-        errors = 0;
-        state = 0;
 
         restart = false;
 
         introexp.SetActive(true);
-
-        ps.Stop();
-        ps.enableEmission = false;
         
     }
 
@@ -59,23 +47,15 @@ public class LvlA : MonoBehaviour
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
     public void startGame(){
 
-        for (int i = 0; i < cards.Count; ++i){
-            GameObject temp = cards[i];
-            int randomIndex = Random.Range(i, cards.Count);
-            cards[i] = cards[randomIndex];
-            cards[randomIndex] = temp;
-        }
-
         time = 0;
-        cardCount = 0;
-        previousCount = 0;
         points = 0;
         errors = 0;
         tutorial.SetActive(false);
 
-        if (!restart){
-            activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
+        for (int i = 0; i < peces.Count; ++i){
+            Instantiate(peces[i], initialPos[i].transform.position, Quaternion.identity);
         }
+
 
         active = true;
         done = true;
@@ -94,6 +74,7 @@ public class LvlA : MonoBehaviour
                 break;
             case 2:
                 action.SetActive(true);
+                game.SetActive(true);
                 gameAction();
                 break;
             case 3:
@@ -122,7 +103,7 @@ public class LvlA : MonoBehaviour
 
     private void gameAction() {
 
-        if (!active && (cardCount != previousCount) && (cardCount < 10) && done){
+        /*if (!active && (cardCount != previousCount) && (cardCount < 10) && done){
             done = false;
             StartCoroutine(waitForCardDisappear());
         }
@@ -130,19 +111,18 @@ public class LvlA : MonoBehaviour
         if (cardCount == 10){
             StartCoroutine(waitForLastAnimation());
             
-        }
+        }*/
 
         restart = false;
     }
 
     IEnumerator waitForCardDisappear(){
 
-        ps.Play();
-        ps.enableEmission = true;
+       
 
         yield return new WaitForSeconds(3);
 
-        Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
+        Instantiate(peces[cardCount],gameObject.transform.position, Quaternion.identity);
         
         done = true;
         ++previousCount;
@@ -185,5 +165,4 @@ public class LvlA : MonoBehaviour
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
     }
-   
 }
