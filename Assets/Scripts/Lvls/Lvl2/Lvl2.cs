@@ -118,8 +118,6 @@ public class Lvl2 : MonoBehaviour
 
     IEnumerator waitForCardDisappear(){
 
-       
-
         yield return new WaitForSeconds(3);
 
         Instantiate(peces[cardCount],gameObject.transform.position, Quaternion.identity);
