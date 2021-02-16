@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Lvl2 : MonoBehaviour
 {
-    public List<GameObject> peces, initialPos;
+    public List<GameObject> peces, initialPos, instantiates;
 
     private GameObject activeCard;
-
-    public static bool active;
 
     public static int cardCount, points, errors;
 
@@ -21,17 +20,16 @@ public class Lvl2 : MonoBehaviour
     public Text  timer, finalTime;
 
     private int min, sec;
-    public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
+    public static int state, numCorPieces; //0 = intro, 1 = tutorial, 2 = game, 3 = pause, 4 = outro
 
     public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
 
-    private bool done, restart;
+    private bool done;
 
     void Start(){
 
         time = 0;
-
-        restart = false;
+        numCorPieces = 0;
 
         introexp.SetActive(true);
         
@@ -53,11 +51,9 @@ public class Lvl2 : MonoBehaviour
         tutorial.SetActive(false);
 
         for (int i = 0; i < peces.Count; ++i){
-            Instantiate(peces[i], initialPos[i].transform.position, Quaternion.identity);
+            instantiates[i] = Instantiate(peces[i], initialPos[i].transform.position, Quaternion.identity);
         }
 
-
-        active = true;
         done = true;
         state = 2;
     }
@@ -75,14 +71,19 @@ public class Lvl2 : MonoBehaviour
             case 2:
                 action.SetActive(true);
                 game.SetActive(true);
+                PecesMovement.paused = false;
                 gameAction();
                 break;
             case 3:
                 action.SetActive(false);
                 pause.SetActive(true);
+                PecesMovement.paused = true;
                 break;
             case 4:
                 updateScore(min, sec, points, errors);
+                destroyAllPieces();
+                game.SetActive(false);
+                action.SetActive(false);
                 outro.SetActive(true);
                 PlayerPrefs.SetInt("LvlA", 1);
                 break;
@@ -92,7 +93,7 @@ public class Lvl2 : MonoBehaviour
 
         //Timer
         if (state == 2){
-             time += Time.deltaTime;
+            time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
             sec = Mathf.FloorToInt(time % 60);
@@ -102,39 +103,14 @@ public class Lvl2 : MonoBehaviour
     }
 
     private void gameAction() {
-
-        /*if (!active && (cardCount != previousCount) && (cardCount < 10) && done){
-            done = false;
-            StartCoroutine(waitForCardDisappear());
+        if (numCorPieces == 7){
+            state = 4;
         }
-
-        if (cardCount == 10){
-            StartCoroutine(waitForLastAnimation());
-            
-        }*/
-
-        restart = false;
     }
 
-    IEnumerator waitForCardDisappear(){
-
-        yield return new WaitForSeconds(3);
-
-        Instantiate(peces[cardCount],gameObject.transform.position, Quaternion.identity);
-        
-        done = true;
-        ++previousCount;
-    }
-
-    IEnumerator waitForLastAnimation(){
-
-        yield return new WaitForSeconds(3);
-
-        action.SetActive(false);
-        state = 4;
-    }
 
     public void endLvl(){
+        pause.SetActive(false);
         SceneManager.LoadScene("Map");
     }
 
@@ -145,20 +121,29 @@ public class Lvl2 : MonoBehaviour
 
     public void restartLvl(){
         pause.SetActive(false);
-        restart = true;
+        destroyAllPieces();
         startGame();
+    }
+
+    private void destroyAllPieces(){
+        for (int i = 0; i < peces.Count; ++i){
+            Destroy(instantiates[i]);
+        }
     }
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (points >= 3) { //1 estrella
+        if (min == 0 && sec <= 30) { //3 estrella
             star1.SetActive(true);
+            star2.SetActive(true);
+            star3.SetActive(true);
         }
-        if (points >= 7) { //2 estrellas
+        else if (min <= 1) { //2 estrellas
+            star1.SetActive(true);
             star2.SetActive(true);
         }
-        if (points == 10) { //3 estrellas
-            star3.SetActive(true);
+        else { //1 estrellas
+            star1.SetActive(true);
         }
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");

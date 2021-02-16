@@ -157,6 +157,7 @@ public class LvlA : MonoBehaviour
     }
 
     public void endLvl(){
+        pause.SetActive(false);
         SceneManager.LoadScene("Map");
     }
 
