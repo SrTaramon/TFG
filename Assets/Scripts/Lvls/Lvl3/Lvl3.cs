@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Lvl2 : MonoBehaviour
+public class Lvl3 : MonoBehaviour
 {
-    public List<GameObject> peces, initialPos, instantiates;
+     public List<GameObject> peces, initialPos, instantiates;
 
     private GameObject activeCard;
 
