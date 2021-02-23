@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Lvl3 : MonoBehaviour
 {
-     public List<GameObject> peces, initialPos, instantiates;
+    public List<GameObject> mites;
+    private List<GameObject> instantiates;
 
-    private GameObject activeCard;
+    private GameObject activeMite;
 
     public static int cardCount, points, errors;
 
@@ -48,9 +49,14 @@ public class Lvl3 : MonoBehaviour
         errors = 0;
         tutorial.SetActive(false);
 
-        for (int i = 0; i < peces.Count; ++i){
-            instantiates[i] = Instantiate(peces[i], initialPos[i].transform.position, Quaternion.identity);
+        for (int i = 0; i < mites.Count; ++i){
+            GameObject temp = mites[i];
+            int randomIndex = Random.Range(i, mites.Count);
+            mites[i] = mites[randomIndex];
+            mites[randomIndex] = temp;
         }
+
+        activeMite = Instantiate(mites[1], game.gameObject.transform.position, Quaternion.identity);
 
         done = true;
         state = 2;
@@ -124,7 +130,7 @@ public class Lvl3 : MonoBehaviour
     }
 
     private void destroyAllPieces(){
-        for (int i = 0; i < peces.Count; ++i){
+        for (int i = 0; i < mites.Count; ++i){
             Destroy(instantiates[i]);
         }
     }
