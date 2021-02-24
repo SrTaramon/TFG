@@ -8,28 +8,26 @@ public class Lvl3 : MonoBehaviour
     public List<GameObject> mites;
     private List<GameObject> instantiates;
 
-    private GameObject activeMite;
-
     public static int cardCount, points, errors;
 
-    private int previousCount;
+    private int count, puntuacio;
 
     private float time;
 
     public Text  timer, finalTime;
 
     private int min, sec;
-    public static int state, numCorPieces; //0 = intro, 1 = tutorial, 2 = game, 3 = pause, 4 = outro
+    public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = pause, 4 = outro
 
     public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
 
     private bool done;
+    public static bool fals, cert; 
 
     void Start(){
 
-        time = 0;
-        numCorPieces = 0;
-
+        fals = false;
+        cert = false;
         introexp.SetActive(true);
         
     }
@@ -47,6 +45,8 @@ public class Lvl3 : MonoBehaviour
         time = 0;
         points = 0;
         errors = 0;
+        count = 0;
+        puntuacio = 0;
         tutorial.SetActive(false);
 
         for (int i = 0; i < mites.Count; ++i){
@@ -55,8 +55,9 @@ public class Lvl3 : MonoBehaviour
             mites[i] = mites[randomIndex];
             mites[randomIndex] = temp;
         }
-
-        activeMite = Instantiate(mites[1], game.gameObject.transform.position, Quaternion.identity);
+        
+        instantiates = mites;
+        instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
 
         done = true;
         state = 2;
@@ -75,17 +76,15 @@ public class Lvl3 : MonoBehaviour
             case 2:
                 action.SetActive(true);
                 game.SetActive(true);
-                PecesMovement.paused = false;
                 gameAction();
                 break;
             case 3:
                 action.SetActive(false);
                 pause.SetActive(true);
-                PecesMovement.paused = true;
+                instantiates[count].SetActive(false);
                 break;
             case 4:
                 updateScore(min, sec, points, errors);
-                destroyAllPieces();
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
@@ -107,9 +106,34 @@ public class Lvl3 : MonoBehaviour
     }
 
     private void gameAction() {
-        if (numCorPieces == 7){
-            state = 4;
+
+        //Comprobem quina decisió han prés i si han acertat o no
+        if (fals){
+            if (instantiates[count].name[2] == 'B'){
+                newMite();
+                ++puntuacio;
+            } else {
+                newMite();
+                --puntuacio;
+            }
+            fals = false;
+        } 
+        else if (cert){
+            if (instantiates[count].name[2] == 'G'){
+                newMite();
+                ++puntuacio;
+            } else {
+                newMite();
+                --puntuacio;
+            }
+            cert = false;
         }
+    }
+
+    private void newMite(){
+        Destroy(instantiates[count]);
+        ++count;
+        instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
     }
 
 
@@ -120,19 +144,16 @@ public class Lvl3 : MonoBehaviour
 
     public void backToLvl(){
         pause.SetActive(false);
+        instantiates[count].SetActive(true);
         state = 2;
     }
 
     public void restartLvl(){
         pause.SetActive(false);
-        destroyAllPieces();
-        startGame();
-    }
-
-    private void destroyAllPieces(){
         for (int i = 0; i < mites.Count; ++i){
-            Destroy(instantiates[i]);
+            instantiates[i] = mites[i];
         }
+        startGame();
     }
 
     public void updateScore(int min, int sec, int points, int errors){
