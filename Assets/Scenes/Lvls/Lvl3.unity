@@ -1723,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &668137551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2461,7 +2461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 139}
+  m_AnchoredPosition: {x: -351, y: 68}
   m_SizeDelta: {x: 206.66068, y: 53.33525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1077529176
@@ -3357,8 +3357,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Lvl2, Assembly-CSharp
+      - m_Target: {fileID: 1474211601}
+        m_TargetAssemblyTypeName: Lvl3, Assembly-CSharp
         m_MethodName: endLvl
         m_Mode: 1
         m_Arguments:
@@ -3720,12 +3720,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mites:
-  - {fileID: 4930861547684986709, guid: 0c2ca335dfc9f9d4587c924cb8d10a81, type: 3}
-  - {fileID: 5224480126004622584, guid: 2c0c203a1deb34c49864e6514fb92ab2, type: 3}
-  - {fileID: 5799585617641219828, guid: 994cf153f43e2824dbffe851a61ace06, type: 3}
-  - {fileID: 1407323666631486827, guid: 4ca32a4892f482d4297a2791c5cb6a65, type: 3}
-  - {fileID: 1212549763560390241, guid: 78fd8bc584c5ce74eba3c5af02a6b537, type: 3}
-  - {fileID: 4523703918846529561, guid: 49ae122a72821c14aaf13d7dc9f6ee2a, type: 3}
+  - {fileID: 8666113602682375600, guid: 78fca4f8c21bbd14cae20f65099f1618, type: 3}
+  - {fileID: 1581632700163982760, guid: 6241a3dc519bd2449bfbe66320ccef77, type: 3}
+  - {fileID: 9111257970535193158, guid: 566ecf3f76f9f914fad3b633a5bb86a2, type: 3}
+  - {fileID: 7453848421176272172, guid: 0eb71c29eb661074bbf9398ca2a27c4f, type: 3}
+  - {fileID: 5780970860380246574, guid: 777e7cb6e0b070843bea3b539325d3d0, type: 3}
+  - {fileID: 417514893993391925, guid: 48979a861f080c347bbe3b2e1c5a5223, type: 3}
+  - {fileID: 2793852086544507946, guid: 968b5d7645f77874195373acb85700f1, type: 3}
+  - {fileID: 3298116255670958115, guid: f1281425b83189249bb90bbb89f5c7f4, type: 3}
+  - {fileID: 7144437276331755294, guid: a5466c5b662a8b5488ef3e2f39bfdfcc, type: 3}
+  - {fileID: 6353863925228635982, guid: 8b1f227b40e825f4d834714c06e9a6c8, type: 3}
   timer: {fileID: 1077529177}
   finalTime: {fileID: 177962725}
   action: {fileID: 1592033125}

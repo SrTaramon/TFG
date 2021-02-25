@@ -8,9 +8,9 @@ public class Lvl3 : MonoBehaviour
     public List<GameObject> mites;
     private List<GameObject> instantiates;
 
-    public static int cardCount, points, errors;
+    public static int points, errors;
 
-    private int count, puntuacio;
+    private int count;
 
     private float time;
 
@@ -20,8 +20,7 @@ public class Lvl3 : MonoBehaviour
     public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = pause, 4 = outro
 
     public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
-
-    private bool done;
+    
     public static bool fals, cert; 
 
     void Start(){
@@ -46,7 +45,6 @@ public class Lvl3 : MonoBehaviour
         points = 0;
         errors = 0;
         count = 0;
-        puntuacio = 0;
         tutorial.SetActive(false);
 
         for (int i = 0; i < mites.Count; ++i){
@@ -59,7 +57,6 @@ public class Lvl3 : MonoBehaviour
         instantiates = mites;
         instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
 
-        done = true;
         state = 2;
     }
 
@@ -107,33 +104,42 @@ public class Lvl3 : MonoBehaviour
 
     private void gameAction() {
 
+        if (count == 10){
+            Debug.Log("HOLA");
+            state = 4;
+            return;
+        }
+
         //Comprobem quina decisió han prés i si han acertat o no
         if (fals){
-            if (instantiates[count].name[2] == 'B'){
+            if (instantiates[count].name[0] == 'B'){
                 newMite();
-                ++puntuacio;
+                ++points;
             } else {
                 newMite();
-                --puntuacio;
+                ++errors;
             }
             fals = false;
         } 
         else if (cert){
-            if (instantiates[count].name[2] == 'G'){
+            if (instantiates[count].name[0] == 'G'){
                 newMite();
-                ++puntuacio;
+                ++points;
             } else {
                 newMite();
-                --puntuacio;
+                ++errors;
             }
             cert = false;
         }
     }
 
     private void newMite(){
+        Debug.Log(count);
         Destroy(instantiates[count]);
         ++count;
-        instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
+        if (count <= 9){
+            instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
+        }
     }
 
 
@@ -158,12 +164,12 @@ public class Lvl3 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (min == 0 && sec <= 30) { //3 estrella
+        if (points >= 8) { //3 estrella
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
         }
-        else if (min <= 1) { //2 estrellas
+        else if (points >= 5) { //2 estrellas
             star1.SetActive(true);
             star2.SetActive(true);
         }
