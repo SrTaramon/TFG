@@ -49,6 +49,6 @@ public class Ball : MonoBehaviour
     void OnMouseUp(){
         lineRenderer.enabled = false;
         Vector2 ballForce = new Vector2(Mathf.Clamp(startPos.x-endPos.x, -5, 5), Mathf.Clamp(startPos.y - endPos.y, -5, 5));
-        rb.AddForce(ballForce * 3, ForceMode2D.Impulse);
+        rb.AddForce(ballForce * 5, ForceMode2D.Impulse);
     }
 }
