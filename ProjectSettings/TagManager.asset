@@ -13,6 +13,8 @@ TagManager:
   - P22(Clone)
   - P23(Clone)
   - P24(Clone)
+  - Happy
+  - Sad
   layers:
   - Default
   - TransparentFX

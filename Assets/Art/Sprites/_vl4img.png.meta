@@ -1,70 +1,43 @@
 fileFormatVersion: 2
-guid: a2a388d74c635ce44bbfe7c2bd970b2f
+guid: 1b8001352d9249845a459de77dc11057
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -338005183851682695
-    second: _matgesLvl4_0
+      213: -3032469468378849043
+    second: imgH1
   - first:
-      213: 4628744414067271489
-    second: _matgesLvl4_1
+      213: 1998619948748510947
+    second: imgH2
   - first:
-      213: -4109566714359008237
-    second: _matgesLvl4_2
+      213: 3060910452735881399
+    second: imgH3
   - first:
-      213: 193442301571219013
-    second: _matgesLvl4_3
+      213: 8293929330457681971
+    second: imgH4
   - first:
-      213: -3993910923957376445
-    second: _matgesLvl4_4
+      213: -4155054715624262667
+    second: imgH5
   - first:
-      213: 1954952053840238074
-    second: _matgesLvl4_5
+      213: 4121484484777374240
+    second: imgS1
   - first:
-      213: -124346777392980040
-    second: _matgesLvl4_6
+      213: -6581833207059640222
+    second: imgS2
   - first:
-      213: -513112125015458463
-    second: _matgesLvl4_7
+      213: -2113994791131539005
+    second: imgS3
   - first:
-      213: 1334660377201748006
-    second: _matgesLvl4_8
+      213: -2461457767857622481
+    second: imgS4
   - first:
-      213: -3938820509600465637
-    second: _matgesLvl4_9
+      213: -2066842439850471922
+    second: imgS5
   - first:
-      213: 5966774959735396657
-    second: _matgesLvl4_10
+      213: -7822770413215017711
+    second: _vl4img_10
   - first:
-      213: -6246610658767522308
-    second: _matgesLvl4_11
-  - first:
-      213: 4485996950233302936
-    second: _matgesLvl4_12
-  - first:
-      213: 7859413175539235
-    second: _matgesLvl4_13
-  - first:
-      213: -6255677253449675567
-    second: _matgesLvl4_14
-  - first:
-      213: -7604277924542320645
-    second: _matgesLvl4_15
-  - first:
-      213: -4315637876264259782
-    second: _matgesLvl4_16
-  - first:
-      213: -4004126962960525015
-    second: _matgesLvl4_17
-  - first:
-      213: 4673267856950594075
-    second: _matgesLvl4_18
-  - first:
-      213: -6278044143513666411
-    second: _matgesLvl4_19
-  - first:
-      213: 8750478223638191310
-    second: _matgesLvl4_20
+      213: 5334089342981822091
+    second: _vl4img_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -164,253 +137,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _matgesLvl4_0
+      name: imgH1
       rect:
         serializedVersion: 2
-        x: 199
-        y: 1570
-        width: 371
-        height: 502
+        x: 59
+        y: 1075
+        width: 425
+        height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 974a74c731a2f4bf0800000000000000
-      internalID: -338005183851682695
+      spriteID: de0af01d5118ae5d0800000000000000
+      internalID: -3032469468378849043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_2
+      name: imgH2
       rect:
         serializedVersion: 2
-        x: 823
-        y: 1549
-        width: 523
-        height: 549
+        x: 555
+        y: 1078
+        width: 425
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 314bcd1c8d2e7f6c0800000000000000
-      internalID: -4109566714359008237
+      spriteID: 3e61a2611468cbb10800000000000000
+      internalID: 1998619948748510947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_4
+      name: imgH3
       rect:
         serializedVersion: 2
-        x: 1477
-        y: 1598
-        width: 540
-        height: 485
+        x: 1021
+        y: 1079
+        width: 426
+        height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ae7f0ec27c298c0800000000000000
-      internalID: -3993910923957376445
+      spriteID: 7b03a90e6d98a7a20800000000000000
+      internalID: 3060910452735881399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_9
+      name: imgH4
       rect:
         serializedVersion: 2
-        x: 2088
-        y: 1546
-        width: 498
-        height: 555
+        x: 1484
+        y: 1080
+        width: 426
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1dbd338d9f7659c0800000000000000
-      internalID: -3938820509600465637
+      spriteID: 330af1e68c4f91370800000000000000
+      internalID: 8293929330457681971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_13
+      name: imgH5
       rect:
         serializedVersion: 2
-        x: 199
-        y: 856
-        width: 384
-        height: 575
+        x: 43
+        y: 587
+        width: 426
+        height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 326987a381ceb1000800000000000000
-      internalID: 7859413175539235
+      spriteID: 5f377e420c74656c0800000000000000
+      internalID: -4155054715624262667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_14
+      name: imgS1
       rect:
         serializedVersion: 2
-        x: 779
-        y: 856
-        width: 540
-        height: 497
+        x: 539
+        y: 590
+        width: 425
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dc04a69eae5f29a0800000000000000
-      internalID: -6255677253449675567
+      spriteID: 02270766d44723930800000000000000
+      internalID: 4121484484777374240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_15
+      name: imgS2
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 859
-        width: 531
-        height: 535
+        x: 1005
+        y: 590
+        width: 426
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bff6f4e448d287690800000000000000
-      internalID: -7604277924542320645
+      spriteID: 260175af191a8a4a0800000000000000
+      internalID: -6581833207059640222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_16
+      name: imgS3
       rect:
         serializedVersion: 2
-        x: 2101
-        y: 856
-        width: 530
-        height: 535
+        x: 1469
+        y: 592
+        width: 425
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3f2c0e7736cb14c0800000000000000
-      internalID: -4315637876264259782
+      spriteID: 3c9149910f499a2e0800000000000000
+      internalID: -2113994791131539005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_17
+      name: imgS4
       rect:
         serializedVersion: 2
-        x: 131
-        y: 141
-        width: 523
-        height: 522
+        x: 64
+        y: 81
+        width: 426
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9299c21fdbb7e68c0800000000000000
-      internalID: -4004126962960525015
+      spriteID: f227835933527ddd0800000000000000
+      internalID: -2461457767857622481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_18
+      name: imgS5
       rect:
         serializedVersion: 2
-        x: 770
-        y: 148
-        width: 541
-        height: 569
+        x: 560
+        y: 85
+        width: 426
+        height: 424
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1a8ac91b58cad040800000000000000
-      internalID: 4673267856950594075
+      spriteID: e0ec20660c91153e0800000000000000
+      internalID: -2066842439850471922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_19
+      name: _vl4img_10
       rect:
         serializedVersion: 2
-        x: 1424
-        y: 141
-        width: 543
-        height: 576
+        x: 1026
+        y: 85
+        width: 426
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c75ad2d18efd8a0800000000000000
-      internalID: -6278044143513666411
+      spriteID: 11512e881cfef6390800000000000000
+      internalID: -7822770413215017711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _matgesLvl4_20
+      name: _vl4img_11
       rect:
         serializedVersion: 2
-        x: 2080
-        y: 141
-        width: 543
-        height: 576
+        x: 1490
+        y: 87
+        width: 425
+        height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eccdeb61591ff6970800000000000000
-      internalID: 8750478223638191310
+      spriteID: b86d0a80ffd760a40800000000000000
+      internalID: 5334089342981822091
       vertices: []
       indices: 
       edges: []

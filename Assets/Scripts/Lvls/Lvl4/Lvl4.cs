@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Lvl4 : MonoBehaviour
 {
-     public List<GameObject> mites;
+    public List<GameObject> balls;
+    public GameObject ballPos;
+    public List<GameObject> imatges;
+    public List<GameObject> posicions;
     private List<GameObject> instantiates;
 
     public static int points, errors;
@@ -47,6 +50,11 @@ public class Lvl4 : MonoBehaviour
         errors = 0;
         count = 0;
         tutorial.SetActive(false);
+        Random random = new Random();
+
+        Instantiate(imatges[0], posicions[0].gameObject.transform.position, Quaternion.identity);
+        Instantiate(imatges[1], posicions[1].gameObject.transform.position, Quaternion.identity);
+        Instantiate(balls[Random.Range(0, 2)], ballPos.gameObject.transform.position, Quaternion.identity);
 
         /* for (int i = 0; i < mites.Count; ++i){
             GameObject temp = mites[i];
@@ -139,7 +147,7 @@ public class Lvl4 : MonoBehaviour
         Destroy(instantiates[count]);
         ++count;
         if (count <= 9){
-            instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
+            //instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
         }
     }
 
@@ -157,9 +165,9 @@ public class Lvl4 : MonoBehaviour
 
     public void restartLvl(){
         pause.SetActive(false);
-        for (int i = 0; i < mites.Count; ++i){
+        /* for (int i = 0; i < mites.Count; ++i){
             instantiates[i] = mites[i];
-        }
+        } */
         startGame();
     }
 

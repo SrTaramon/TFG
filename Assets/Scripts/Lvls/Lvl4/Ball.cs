@@ -13,9 +13,14 @@ public class Ball : MonoBehaviour
     private Camera cam;
 
     private float max;
+
+    private bool oneShoot;
+    public static bool destroyed;
     // Start is called before the first frame update
     void Start()
     {
+        oneShoot = false;
+        destroyed = false;
         rb = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponent<LineRenderer>();
         cam = Camera.main;
@@ -29,7 +34,12 @@ public class Ball : MonoBehaviour
         fingerDir = fingerPos - gameObject.transform.position;
         fingerDir.z = 0;
         fingerDir = fingerDir.normalized;
+
+        if (oneShoot && !destroyed){
+            Destroy(gameObject, 2.5f);
+        }
     }
+
 
     void OnMouseDown(){
         lineRenderer.enabled = true;
@@ -50,5 +60,7 @@ public class Ball : MonoBehaviour
         lineRenderer.enabled = false;
         Vector2 ballForce = new Vector2(Mathf.Clamp(startPos.x-endPos.x, -5, 5), Mathf.Clamp(startPos.y - endPos.y, -5, 5));
         rb.AddForce(ballForce * 5, ForceMode2D.Impulse);
+        oneShoot = true;
     }
+
 }
