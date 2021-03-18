@@ -52,8 +52,8 @@ public class Lvl4 : MonoBehaviour
         tutorial.SetActive(false);
         Random random = new Random();
 
-        Instantiate(imatges[0], posicions[0].gameObject.transform.position, Quaternion.identity);
-        Instantiate(imatges[1], posicions[1].gameObject.transform.position, Quaternion.identity);
+        Instantiate(imatges[6], posicions[6].gameObject.transform.position, Quaternion.identity);
+        Instantiate(imatges[7], posicions[7].gameObject.transform.position, Quaternion.identity);
         Instantiate(balls[Random.Range(0, 2)], ballPos.gameObject.transform.position, Quaternion.identity);
 
         /* for (int i = 0; i < mites.Count; ++i){
