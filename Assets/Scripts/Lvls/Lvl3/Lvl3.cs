@@ -85,7 +85,7 @@ public class Lvl3 : MonoBehaviour
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
-                PlayerPrefs.SetInt("Lvl2", 1);
+                PlayerPrefs.SetInt("Lvl3", 1);
                 break;
             default:
                 break;

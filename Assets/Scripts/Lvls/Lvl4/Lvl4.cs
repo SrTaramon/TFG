@@ -10,7 +10,6 @@ public class Lvl4 : MonoBehaviour
     public GameObject ballPos;
     public List<GameObject> imatges;
     public List<GameObject> posicions;
-    private List<GameObject> instantiates;
 
     public static int points, errors;
 
@@ -26,6 +25,12 @@ public class Lvl4 : MonoBehaviour
     public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
     
     public static bool fals, cert; 
+
+    private GameObject ball, img1, img2;
+
+    private bool created;
+
+    public static bool needHappy, needSad;
 
     void Start(){
 
@@ -45,26 +50,18 @@ public class Lvl4 : MonoBehaviour
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
     public void startGame(){
 
+        created = false;
+        needHappy = false;
+        needSad = false;
         time = 0;
         points = 0;
         errors = 0;
         count = 0;
         tutorial.SetActive(false);
-        Random random = new Random();
 
-        Instantiate(imatges[6], posicions[6].gameObject.transform.position, Quaternion.identity);
-        Instantiate(imatges[7], posicions[7].gameObject.transform.position, Quaternion.identity);
-        Instantiate(balls[Random.Range(0, 2)], ballPos.gameObject.transform.position, Quaternion.identity);
-
-        /* for (int i = 0; i < mites.Count; ++i){
-            GameObject temp = mites[i];
-            int randomIndex = Random.Range(i, mites.Count);
-            mites[i] = mites[randomIndex];
-            mites[randomIndex] = temp;
-        }
-        
-        instantiates = mites;
-        instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity); */
+        img1 = Instantiate(imatges[4], posicions[4].gameObject.transform.position, Quaternion.identity);
+        img2 = Instantiate(imatges[5], posicions[5].gameObject.transform.position, Quaternion.identity);
+        ball = Instantiate(balls[0], ballPos.gameObject.transform.position, Quaternion.identity);
 
         state = 2;
     }
@@ -87,14 +84,13 @@ public class Lvl4 : MonoBehaviour
             case 3:
                 action.SetActive(false);
                 pause.SetActive(true);
-                instantiates[count].SetActive(false);
                 break;
             case 4:
                 updateScore(min, sec, points, errors);
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
-                PlayerPrefs.SetInt("Lvl2", 1);
+                PlayerPrefs.SetInt("Lvl4", 1);
                 break;
             default:
                 break;
@@ -113,41 +109,48 @@ public class Lvl4 : MonoBehaviour
 
     private void gameAction() {
 
-        if (count == 10){
-            Debug.Log("HOLA");
-            state = 4;
-            return;
+        if (ball == null){
+            if (needHappy){
+                ball = Instantiate(balls[0], ballPos.gameObject.transform.position, Quaternion.identity);
+            }
+            else if (needSad){
+                ball = Instantiate(balls[1], ballPos.gameObject.transform.position, Quaternion.identity);
+            }
         }
 
-        //Comprobem quina decisió han prés i si han acertat o no
-        if (fals){
-            if (instantiates[count].name[0] == 'B'){
-                newMite();
-                ++points;
-            } else {
-                newMite();
-                ++errors;
-            }
-            fals = false;
-        } 
-        else if (cert){
-            if (instantiates[count].name[0] == 'G'){
-                newMite();
-                ++points;
-            } else {
-                newMite();
-                ++errors;
-            }
-            cert = false;
+        if (img1 == null && img2 == null){
+            created = false;
         }
-    }
 
-    private void newMite(){
-        Debug.Log(count);
-        Destroy(instantiates[count]);
-        ++count;
-        if (count <= 9){
-            //instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
+        if (!created){
+            switch (errors + points){
+                case 2:
+                    img1 = Instantiate(imatges[0], posicions[0].gameObject.transform.position, Quaternion.identity);
+                    img2 = Instantiate(imatges[1], posicions[1].gameObject.transform.position, Quaternion.identity);
+                    needHappy = true;
+                    created = true;
+                    break;
+                case 4:
+                    img1 = Instantiate(imatges[2], posicions[2].gameObject.transform.position, Quaternion.identity);
+                    img2 = Instantiate(imatges[3], posicions[3].gameObject.transform.position, Quaternion.identity);
+                    needSad = true;
+                    created = true;
+                    break;
+                case 6:
+                    img1 = Instantiate(imatges[8], posicions[8].gameObject.transform.position, Quaternion.identity);
+                    img2 = Instantiate(imatges[9], posicions[9].gameObject.transform.position, Quaternion.identity);
+                    needHappy = true;
+                    created = true;
+                    break;
+                case 8:
+                    img1 = Instantiate(imatges[6], posicions[6].gameObject.transform.position, Quaternion.identity);
+                    img2 = Instantiate(imatges[7], posicions[7].gameObject.transform.position, Quaternion.identity);
+                    needSad = true;
+                    created = true;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -159,15 +162,11 @@ public class Lvl4 : MonoBehaviour
 
     public void backToLvl(){
         pause.SetActive(false);
-        instantiates[count].SetActive(true);
         state = 2;
     }
 
     public void restartLvl(){
         pause.SetActive(false);
-        /* for (int i = 0; i < mites.Count; ++i){
-            instantiates[i] = mites[i];
-        } */
         startGame();
     }
 

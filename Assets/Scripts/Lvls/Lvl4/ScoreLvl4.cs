@@ -20,8 +20,12 @@ public class ScoreLvl4 : MonoBehaviour
         switch (col.gameObject.tag) {
             case "Sad":
                 if (gameObject.tag == "Sad"){
+                    Lvl4.needSad = false;
+                    Lvl4.needHappy = true;
                     ++Lvl4.points;
                 } else {
+                    Lvl4.needHappy = false;
+                    Lvl4.needSad = true;
                     ++Lvl4.errors;
                 }
                 Ball.destroyed = true;
@@ -30,8 +34,12 @@ public class ScoreLvl4 : MonoBehaviour
                 break;
             case "Happy":
                 if (gameObject.tag == "Happy"){
+                    Lvl4.needHappy = false;
+                    Lvl4.needSad = true;
                     ++Lvl4.points;
                 } else {
+                    Lvl4.needSad = false;
+                    Lvl4.needHappy = true;
                     ++Lvl4.errors;
                 }
                 Ball.destroyed = true;
