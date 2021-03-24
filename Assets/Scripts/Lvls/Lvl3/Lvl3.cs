@@ -145,6 +145,7 @@ public class Lvl3 : MonoBehaviour
 
     public void endLvl(){
         pause.SetActive(false);
+        outro.SetActive(false);
         SceneManager.LoadScene("Map");
     }
 

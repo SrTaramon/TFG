@@ -37,6 +37,7 @@ public class Lvl4 : MonoBehaviour
         fals = false;
         cert = false;
         introexp.SetActive(true);
+        outro.SetActive(false);
         
     }
 
@@ -51,7 +52,7 @@ public class Lvl4 : MonoBehaviour
     public void startGame(){
 
         created = false;
-        needHappy = false;
+        needHappy = true;
         needSad = false;
         time = 0;
         points = 0;
@@ -59,9 +60,12 @@ public class Lvl4 : MonoBehaviour
         count = 0;
         tutorial.SetActive(false);
 
-        img1 = Instantiate(imatges[4], posicions[4].gameObject.transform.position, Quaternion.identity);
-        img2 = Instantiate(imatges[5], posicions[5].gameObject.transform.position, Quaternion.identity);
-        ball = Instantiate(balls[0], ballPos.gameObject.transform.position, Quaternion.identity);
+        if (img1 == null)  img1 = Instantiate(imatges[4], posicions[4].gameObject.transform.position, Quaternion.identity);
+        if (img2 == null) img2 = Instantiate(imatges[5], posicions[5].gameObject.transform.position, Quaternion.identity);
+        if (ball == null) ball = Instantiate(balls[0], ballPos.gameObject.transform.position, Quaternion.identity);
+
+        img1.SetActive(true);
+        img2.SetActive(true);
 
         state = 2;
     }
@@ -84,12 +88,15 @@ public class Lvl4 : MonoBehaviour
             case 3:
                 action.SetActive(false);
                 pause.SetActive(true);
+                if (img1 != null) img1.SetActive(false);
+                if (img2 != null) img2.SetActive(false);
                 break;
             case 4:
                 updateScore(min, sec, points, errors);
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
+                Destroy(ball);
                 PlayerPrefs.SetInt("Lvl4", 1);
                 break;
             default:
@@ -108,7 +115,6 @@ public class Lvl4 : MonoBehaviour
     }
 
     private void gameAction() {
-
         if (ball == null){
             if (needHappy){
                 ball = Instantiate(balls[0], ballPos.gameObject.transform.position, Quaternion.identity);
@@ -148,6 +154,9 @@ public class Lvl4 : MonoBehaviour
                     needSad = true;
                     created = true;
                     break;
+                case 10:
+                    state = 4;
+                    break;
                 default:
                     break;
             }
@@ -163,6 +172,8 @@ public class Lvl4 : MonoBehaviour
     public void backToLvl(){
         pause.SetActive(false);
         state = 2;
+        if (img1 != null) img1.SetActive(true);
+        if (img2 != null) img2.SetActive(true);
     }
 
     public void restartLvl(){
@@ -172,7 +183,7 @@ public class Lvl4 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (points >= 8) { //3 estrella
+        if (points >= 9) { //3 estrella
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
