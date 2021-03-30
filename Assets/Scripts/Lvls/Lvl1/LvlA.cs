@@ -23,13 +23,11 @@ public class LvlA : MonoBehaviour
     public Text  timer, finalTime;
 
     private int min, sec;
-    public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
+    private int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
 
-    public GameObject action, outro, pause, introexp, tutorial, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
 
     private bool done, restart;
-
-    public ParticleSystem ps;
 
     void Start(){
 
@@ -43,16 +41,6 @@ public class LvlA : MonoBehaviour
         restart = false;
 
         introexp.SetActive(true);
-
-        ps.Stop();
-        ps.enableEmission = false;
-        
-    }
-
-    public void startTutorial(){
-
-        state = 1;
-        introexp.SetActive(false);
         
     }
 
@@ -71,7 +59,8 @@ public class LvlA : MonoBehaviour
         previousCount = 0;
         points = 0;
         errors = 0;
-        tutorial.SetActive(false);
+
+        introexp.SetActive(false);
 
         if (!restart){
             activeCard = Instantiate(cards[0],gameObject.transform.position, Quaternion.identity);
@@ -79,7 +68,7 @@ public class LvlA : MonoBehaviour
 
         active = true;
         done = true;
-        state = 2;
+        state = 1;
     }
 
     //Consultem l'estat en que ens trobem
@@ -90,17 +79,16 @@ public class LvlA : MonoBehaviour
                 Start();
                 break;
             case 1:
-                tutorial.SetActive(true);
-                break;
-            case 2:
+                game.SetActive(true);
                 action.SetActive(true);
                 gameAction();
                 break;
-            case 3:
+            case 2:
+                game.SetActive(false);
                 action.SetActive(false);
                 pause.SetActive(true);
                 break;
-            case 4:
+            case 3:
                 updateScore(min, sec, points, errors);
                 outro.SetActive(true);
                 PlayerPrefs.SetInt("Lvl1", 1);
@@ -110,7 +98,7 @@ public class LvlA : MonoBehaviour
         }
 
         //Timer
-        if (state == 2){
+        if (state == 1){
              time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
@@ -137,9 +125,6 @@ public class LvlA : MonoBehaviour
 
     IEnumerator waitForCardDisappear(){
 
-        ps.Play();
-        ps.enableEmission = true;
-
         yield return new WaitForSeconds(3);
 
         Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
@@ -152,8 +137,9 @@ public class LvlA : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
+        game.SetActive(false);
         action.SetActive(false);
-        state = 4;
+        state = 3;
     }
 
     public void endLvl(){
@@ -163,13 +149,17 @@ public class LvlA : MonoBehaviour
 
     public void backToLvl(){
         pause.SetActive(false);
-        state = 2;
+        state = 1;
     }
 
     public void restartLvl(){
         pause.SetActive(false);
         restart = true;
         startGame();
+    }
+
+    public void pauseActive(){
+        state = 2;
     }
 
     public void updateScore(int min, int sec, int points, int errors){

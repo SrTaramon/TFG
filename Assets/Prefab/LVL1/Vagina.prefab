@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1353091982239122314}
   - component: {fileID: -8875807502596982850}
   - component: {fileID: 1181228372970283475}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Vagina
   m_TagString: Dona
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -8774498811062423939, guid: 43daf958992e390479a12f15c6f82f9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -221,6 +221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HappyFaces
       objectReference: {fileID: 0}
+    - target: {fileID: 6999007802230010344, guid: 04e54030bfa9d3d468dc0628e389c872, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e54030bfa9d3d468dc0628e389c872, type: 3}
 --- !u!4 &454265070442686858 stripped
@@ -286,6 +290,10 @@ PrefabInstance:
     - target: {fileID: 7956557627737025564, guid: c4faff3b3a2c8cf468f90a305f7ca42c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7956557627737025564, guid: c4faff3b3a2c8cf468f90a305f7ca42c, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4faff3b3a2c8cf468f90a305f7ca42c, type: 3}
