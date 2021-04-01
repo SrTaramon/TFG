@@ -23,9 +23,9 @@ public class LvlA : MonoBehaviour
     public Text  timer, finalTime;
 
     private int min, sec;
-    private int state; //0 = intro, 1 = tutorial, 2 = game, 3 = outro
+    private int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
 
-    public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3;
 
     private bool done, restart;
 

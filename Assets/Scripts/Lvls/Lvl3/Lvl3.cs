@@ -17,9 +17,9 @@ public class Lvl3 : MonoBehaviour
     public Text  timer, finalTime;
 
     private int min, sec;
-    public static int state; //0 = intro, 1 = tutorial, 2 = game, 3 = pause, 4 = outro
+    public static int state; //0 = intro, 1 = game, 2 = pause, 3 = outro
 
-    public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3;
     
     public static bool fals, cert; 
 
@@ -31,13 +31,6 @@ public class Lvl3 : MonoBehaviour
         
     }
 
-    public void startTutorial(){
-
-        state = 1;
-        introexp.SetActive(false);
-        
-    }
-
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
     public void startGame(){
 
@@ -45,7 +38,7 @@ public class Lvl3 : MonoBehaviour
         points = 0;
         errors = 0;
         count = 0;
-        tutorial.SetActive(false);
+        introexp.SetActive(false);
 
         for (int i = 0; i < mites.Count; ++i){
             GameObject temp = mites[i];
@@ -57,7 +50,7 @@ public class Lvl3 : MonoBehaviour
         instantiates = mites;
         instantiates[count] = Instantiate(mites[count], game.gameObject.transform.position, Quaternion.identity);
 
-        state = 2;
+        state = 1;
     }
 
     //Consultem l'estat en que ens trobem
@@ -68,20 +61,17 @@ public class Lvl3 : MonoBehaviour
                 Start();
                 break;
             case 1:
-                tutorial.SetActive(true);
-                break;
-            case 2:
                 action.SetActive(true);
                 game.SetActive(true);
                 gameAction();
                 break;
-            case 3:
+            case 2:
                 action.SetActive(false);
                 pause.SetActive(true);
                 instantiates[count].SetActive(false);
                 break;
-            case 4:
-                updateScore(min, sec, points, errors);
+            case 3:
+                 updateScore(min, sec, points, errors);
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
@@ -92,7 +82,7 @@ public class Lvl3 : MonoBehaviour
         }
 
         //Timer
-        if (state == 2){
+        if (state == 1){
             time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
@@ -105,8 +95,7 @@ public class Lvl3 : MonoBehaviour
     private void gameAction() {
 
         if (count == 10){
-            Debug.Log("HOLA");
-            state = 4;
+            state = 3;
             return;
         }
 
@@ -152,7 +141,7 @@ public class Lvl3 : MonoBehaviour
     public void backToLvl(){
         pause.SetActive(false);
         instantiates[count].SetActive(true);
-        state = 2;
+        state = 1;
     }
 
     public void restartLvl(){
@@ -161,6 +150,10 @@ public class Lvl3 : MonoBehaviour
             instantiates[i] = mites[i];
         }
         startGame();
+    }
+
+    public void pauseActive(){
+        state = 2;
     }
 
     public void updateScore(int min, int sec, int points, int errors){

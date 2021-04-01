@@ -18,9 +18,9 @@ public class Lvl2 : MonoBehaviour
     public Text  timer, finalTime;
 
     private int min, sec;
-    public static int state, numCorPieces; //0 = intro, 1 = tutorial, 2 = game, 3 = pause, 4 = outro
+    public static int state, numCorPieces; //0 = intro, 1 = game, 2 = pause, 3 = outro
 
-    public GameObject action, game, outro, pause, introexp, tutorial, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3;
 
     private bool done;
 
@@ -33,27 +33,20 @@ public class Lvl2 : MonoBehaviour
         
     }
 
-    public void startTutorial(){
-
-        state = 1;
-        introexp.SetActive(false);
-        
-    }
-
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
     public void startGame(){
 
         time = 0;
         points = 0;
         errors = 0;
-        tutorial.SetActive(false);
+        introexp.SetActive(false);
 
         for (int i = 0; i < peces.Count; ++i){
             instantiates[i] = Instantiate(peces[i], initialPos[i].transform.position, Quaternion.identity);
         }
 
         done = true;
-        state = 2;
+        state = 1;
     }
 
     //Consultem l'estat en que ens trobem
@@ -64,20 +57,17 @@ public class Lvl2 : MonoBehaviour
                 Start();
                 break;
             case 1:
-                tutorial.SetActive(true);
-                break;
-            case 2:
                 action.SetActive(true);
                 game.SetActive(true);
                 PecesMovement.paused = false;
                 gameAction();
                 break;
-            case 3:
+            case 2:
                 action.SetActive(false);
                 pause.SetActive(true);
                 PecesMovement.paused = true;
                 break;
-            case 4:
+            case 3:
                 updateScore(min, sec, points, errors);
                 destroyAllPieces();
                 game.SetActive(false);
@@ -90,7 +80,7 @@ public class Lvl2 : MonoBehaviour
         }
 
         //Timer
-        if (state == 2){
+        if (state == 1){
             time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
@@ -102,10 +92,12 @@ public class Lvl2 : MonoBehaviour
 
     private void gameAction() {
         if (numCorPieces == 7){
-            state = 4;
+            state = 3;
         }
     }
-
+    public void pauseActive(){
+        state = 2;
+    }
 
     public void endLvl(){
         pause.SetActive(false);
@@ -114,7 +106,7 @@ public class Lvl2 : MonoBehaviour
 
     public void backToLvl(){
         pause.SetActive(false);
-        state = 2;
+        state = 1;
     }
 
     public void restartLvl(){
