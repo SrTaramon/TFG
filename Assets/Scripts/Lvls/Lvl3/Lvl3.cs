@@ -67,6 +67,7 @@ public class Lvl3 : MonoBehaviour
                 break;
             case 2:
                 action.SetActive(false);
+                game.SetActive(false);
                 pause.SetActive(true);
                 instantiates[count].SetActive(false);
                 break;

@@ -13,7 +13,7 @@ public class Hand : MonoBehaviour
 
     }
 
-    void OnMouseDown(){
+    public void click(){
         animator.SetBool("clicked", true);
         StartCoroutine(waitForAnimationEnd());
     }
