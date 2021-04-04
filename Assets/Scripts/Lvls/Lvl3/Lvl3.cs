@@ -23,6 +23,8 @@ public class Lvl3 : MonoBehaviour
     
     public static bool fals, cert; 
 
+    public Animator animator;
+
     void Start(){
 
         fals = false;
@@ -104,9 +106,13 @@ public class Lvl3 : MonoBehaviour
         if (fals){
             if (instantiates[count].name[0] == 'B'){
                 newMite();
+                animator.SetBool("point", true);
+                animator.SetBool("error", false);
                 ++points;
             } else {
                 newMite();
+                animator.SetBool("point", false);
+                animator.SetBool("error", true);
                 ++errors;
             }
             fals = false;
@@ -114,9 +120,13 @@ public class Lvl3 : MonoBehaviour
         else if (cert){
             if (instantiates[count].name[0] == 'G'){
                 newMite();
+                animator.SetBool("point", true);
+                animator.SetBool("error", false);
                 ++points;
             } else {
                 newMite();
+                animator.SetBool("point", false);
+                animator.SetBool("error", true);
                 ++errors;
             }
             cert = false;
@@ -124,7 +134,6 @@ public class Lvl3 : MonoBehaviour
     }
 
     private void newMite(){
-        Debug.Log(count);
         Destroy(instantiates[count]);
         ++count;
         if (count <= 9){
