@@ -1437,7 +1437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347982849664618315, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
       propertyPath: m_Text
-      value: No todo lo que piensa o dice la gente, es cierto
+      value: Todas las personas tienen derecho a vivir una sexualidad plena.
       objectReference: {fileID: 0}
     - target: {fileID: 3347982849773726049, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
