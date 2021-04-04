@@ -1679,7 +1679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150558393888746729, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
       propertyPath: m_Text
-      value: Decide si los siguientes mitos son verdaderos (V) o falsos (X)
+      value: Decide si los siguientes mitos son verdaderos (V) o falsos (X).
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}

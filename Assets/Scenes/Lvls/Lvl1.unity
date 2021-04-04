@@ -1644,6 +1644,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: startGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5150558393888746729, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
+      propertyPath: m_Text
+      value: Arrastra cada carta del aparato reproductor hasta la persona que creas.
+      objectReference: {fileID: 0}
     - target: {fileID: 6697122967229859960, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

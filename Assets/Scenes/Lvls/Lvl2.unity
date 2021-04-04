@@ -2030,6 +2030,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Lvl2, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5150558393888746729, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
+      propertyPath: m_Text
+      value: "Coloca cada pieza del puzle hasta formar los s\xEDmbolos correctos."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
 --- !u!224 &2466757754779500282 stripped
