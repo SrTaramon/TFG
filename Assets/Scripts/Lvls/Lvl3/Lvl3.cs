@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -107,12 +108,12 @@ public class Lvl3 : MonoBehaviour
             if (instantiates[count].name[0] == 'B'){
                 newMite();
                 animator.SetBool("point", true);
-                animator.SetBool("error", false);
+                StartCoroutine(waitForAnimationEnd("point"));
                 ++points;
             } else {
                 newMite();
-                animator.SetBool("point", false);
                 animator.SetBool("error", true);
+                StartCoroutine(waitForAnimationEnd("error"));
                 ++errors;
             }
             fals = false;
@@ -121,16 +122,21 @@ public class Lvl3 : MonoBehaviour
             if (instantiates[count].name[0] == 'G'){
                 newMite();
                 animator.SetBool("point", true);
-                animator.SetBool("error", false);
+                StartCoroutine(waitForAnimationEnd("point"));
                 ++points;
             } else {
                 newMite();
-                animator.SetBool("point", false);
                 animator.SetBool("error", true);
+                StartCoroutine(waitForAnimationEnd("error"));
                 ++errors;
             }
             cert = false;
         }
+    }
+
+    IEnumerator waitForAnimationEnd(string x){
+        yield return new WaitForSeconds(1);
+        animator.SetBool(x, false);
     }
 
     private void newMite(){
