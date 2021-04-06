@@ -28,7 +28,7 @@ public class Lvl2 : MonoBehaviour
 
         time = 0;
         numCorPieces = 0;
-
+        cleanLvl();
         introexp.SetActive(true);
         
     }
@@ -88,6 +88,14 @@ public class Lvl2 : MonoBehaviour
             timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
         
+    }
+
+    private void cleanLvl(){
+        state = 0;
+        pause.SetActive(false);
+        action.SetActive(false);
+        game.SetActive(false);
+        outro.SetActive(false);
     }
 
     private void gameAction() {

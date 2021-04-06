@@ -1409,6 +1409,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Continuar
       objectReference: {fileID: 0}
+    - target: {fileID: 2962960255170656480, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962960255170656480, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_Color.g
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962960255170656480, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6726652
+      objectReference: {fileID: 0}
     - target: {fileID: 2962960255217020454, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1469,8 +1481,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744449030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.4200134, y: 0, z: 0}
-  m_LocalScale: {x: 2.1228983, y: 2.1228983, z: 2.1228983}
+  m_LocalPosition: {x: 5.6323, y: 0, z: 0}
+  m_LocalScale: {x: 2.2555795, y: 2.1228983, z: 2.1228983}
   m_Children:
   - {fileID: 1930915317}
   m_Father: {fileID: 0}

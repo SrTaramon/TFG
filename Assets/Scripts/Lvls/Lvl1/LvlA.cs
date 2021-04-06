@@ -36,11 +36,12 @@ public class LvlA : MonoBehaviour
         previousCount = 0;
         points = 0;
         errors = 0;
-        state = 0;
 
         restart = false;
 
         introexp.SetActive(true);
+
+        cleanLvl();
         
     }
 
@@ -106,6 +107,14 @@ public class LvlA : MonoBehaviour
             timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
         
+    }
+
+    private void cleanLvl(){
+        state = 0;
+        pause.SetActive(false);
+        action.SetActive(false);
+        game.SetActive(false);
+        outro.SetActive(false);
     }
 
     private void gameAction() {

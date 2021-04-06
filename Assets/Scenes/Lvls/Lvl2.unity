@@ -1359,6 +1359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pausa
       objectReference: {fileID: 0}
+    - target: {fileID: 2962960253844554962, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2962960253844554963, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1458,6 +1462,18 @@ PrefabInstance:
     - target: {fileID: 2962960254169361743, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
       propertyPath: m_Name
       value: Continuar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962960255170656480, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962960255170656480, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_Color.g
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962960255170656480, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8080722
       objectReference: {fileID: 0}
     - target: {fileID: 2962960255217020454, guid: 7d219169b0608634880d9b1a4e3134ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
