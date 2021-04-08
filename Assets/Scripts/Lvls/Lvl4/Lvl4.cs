@@ -66,7 +66,6 @@ public class Lvl4 : MonoBehaviour
 
     //Consultem l'estat en que ens trobem
     void Update(){
-
         switch (state) {
             case 0:
                 Start();

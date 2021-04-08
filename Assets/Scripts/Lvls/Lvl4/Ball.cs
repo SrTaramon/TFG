@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private Vector3 startPos, endPos, fingerPos, fingerDir;
+    private Vector3 startPos, endPos, endPosIm, fingerPos, fingerDir;
     
     private LineRenderer lineRenderer;
 
@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
 
     private bool oneShoot;
     public static bool destroyed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,10 @@ public class Ball : MonoBehaviour
         endPos.z = 0;
         float length = Mathf.Clamp(Vector2.Distance(startPos, endPos), 0, max);
         endPos = startPos + (fingerDir * length);
-        lineRenderer.SetPosition(1, endPos);
+        endPosIm.x = -fingerPos.x;
+        endPosIm.y = (-3.31f*2) - fingerPos.y;
+        lineRenderer.SetPosition(1, endPosIm);
+        Debug.Log(endPos.y);
     }
 
     void OnMouseUp(){
