@@ -14,13 +14,13 @@ public class LvlA : MonoBehaviour
 
     public static bool active;
 
-    public static int cardCount, points, errors;
+    public static int cardCount, points, errors, counter;
 
     private int previousCount;
 
     private float time;
 
-    public Text  timer, finalTime;
+    public Text  timer, finalTime, counterText;
 
     private int min, sec;
     private int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
@@ -91,8 +91,10 @@ public class LvlA : MonoBehaviour
                 break;
             case 3:
                 updateScore(min, sec, points, errors);
+                game.SetActive(false);
+                action.SetActive(false);
                 outro.SetActive(true);
-                PlayerPrefs.SetInt("Lvl1", 1);
+                //PlayerPrefs.SetInt("Lvl1", 1);
                 break;
             default:
                 break;
@@ -106,10 +108,27 @@ public class LvlA : MonoBehaviour
             sec = Mathf.FloorToInt(time % 60);
             timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
+
+        switch(counter){
+            case 2:
+                counterText.text = "2";
+                break;
+            case 1:
+                counterText.text = "1";
+                break;
+            case 0:
+                counterText.text = "0";
+                StartCoroutine(waitForGameOver());
+                break;
+            default:
+                break;
+        }
         
     }
 
     private void cleanLvl(){
+        counter = 3;
+        counterText.text = "3";
         state = 0;
         pause.SetActive(false);
         action.SetActive(false);
@@ -132,11 +151,25 @@ public class LvlA : MonoBehaviour
         restart = false;
     }
 
+    IEnumerator waitForGameOver(){
+
+        //play lose music
+        yield return new WaitForSeconds(2);
+
+        if (activeCard != null){
+            activeCard.SetActive(false);
+        }
+        min = 0;
+        sec = 0;
+        points = 0;
+        state = 3;
+    }
+
     IEnumerator waitForCardDisappear(){
 
         yield return new WaitForSeconds(3);
 
-        Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
+        activeCard = Instantiate(cards[cardCount],gameObject.transform.position, Quaternion.identity);
         
         done = true;
         ++previousCount;

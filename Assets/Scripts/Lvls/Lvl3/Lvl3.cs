@@ -9,20 +9,22 @@ public class Lvl3 : MonoBehaviour
     public List<GameObject> mites;
     private List<GameObject> instantiates;
 
-    public static int points, errors;
+    public static int points, errors, counter;
 
     private int count;
 
     private float time;
 
-    public Text  timer, finalTime;
+    public Text  timer, finalTime, counterText;
 
     private int min, sec;
     public static int state; //0 = intro, 1 = game, 2 = pause, 3 = outro
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3;
     
-    public static bool fals, cert; 
+    public static bool fals, cert;
+
+    private bool gameOver; 
 
     public Animator animator;
 
@@ -86,6 +88,21 @@ public class Lvl3 : MonoBehaviour
                 break;
         }
 
+        switch(counter){
+            case 2:
+                counterText.text = "2";
+                break;
+            case 1:
+                counterText.text = "1";
+                break;
+            case 0:
+                counterText.text = "0";
+                StartCoroutine(waitForGameOver());
+                break;
+            default:
+                break;
+        }
+
         //Timer
         if (state == 1){
             time += Time.deltaTime;
@@ -97,7 +114,22 @@ public class Lvl3 : MonoBehaviour
         
     }
 
+    IEnumerator waitForGameOver(){
+
+        //play lose music
+        yield return new WaitForSeconds(2);
+
+        gameOver = true;
+        min = 0;
+        sec = 0;
+        points = 0;
+        state = 3;
+    }
+
     private void cleanLvl(){
+        gameOver = false;
+        counter = 3;
+        counterText.text = "3";
         state = 0;
         pause.SetActive(false);
         action.SetActive(false);
@@ -123,6 +155,7 @@ public class Lvl3 : MonoBehaviour
                 newMite();
                 animator.SetBool("error", true);
                 StartCoroutine(waitForAnimationEnd("error"));
+                --counter;
                 ++errors;
             }
             fals = false;
@@ -137,6 +170,7 @@ public class Lvl3 : MonoBehaviour
                 newMite();
                 animator.SetBool("error", true);
                 StartCoroutine(waitForAnimationEnd("error"));
+                --counter;
                 ++errors;
             }
             cert = false;
@@ -183,17 +217,19 @@ public class Lvl3 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (points >= 8) { //3 estrella
-            star1.SetActive(true);
-            star2.SetActive(true);
-            star3.SetActive(true);
-        }
-        else if (points >= 5) { //2 estrellas
-            star1.SetActive(true);
-            star2.SetActive(true);
-        }
-        else { //1 estrellas
-            star1.SetActive(true);
+        if (!gameOver){
+            if (points >= 8) { //3 estrella
+                star1.SetActive(true);
+                star2.SetActive(true);
+                star3.SetActive(true);
+            }
+            else if (points >= 5) { //2 estrellas
+                star1.SetActive(true);
+                star2.SetActive(true);
+            }
+            else { //1 estrellas
+                star1.SetActive(true);
+            }
         }
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");

@@ -17,6 +17,7 @@ public class ScoreCapturing : MonoBehaviour
                 } else {
                     destroyCard(col);
                     ImgMovement.error = true;
+                    --LvlA.counter;
                     ++LvlA.errors;
                 }
             break;
@@ -27,6 +28,7 @@ public class ScoreCapturing : MonoBehaviour
                     ++LvlA.points;
                 } else {
                     destroyCard(col);
+                    --LvlA.counter;
                     ImgMovement.error = true;
                     ++LvlA.errors;
                 }

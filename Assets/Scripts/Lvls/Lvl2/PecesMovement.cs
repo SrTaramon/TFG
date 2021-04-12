@@ -137,6 +137,7 @@ public class PecesMovement : MonoBehaviour
             goodMove = true;
             badMove = false;
         } else {
+            --Lvl2.counter;
             badMove = true;
             goodMove = false;
         }

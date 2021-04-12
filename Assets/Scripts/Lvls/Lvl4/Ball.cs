@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
         fingerDir = fingerDir.normalized;
 
         if (oneShoot && !destroyed){
-            Destroy(gameObject, 2.5f);
+            Destroy(gameObject, 2f);
         }
     }
 

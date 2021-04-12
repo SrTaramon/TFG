@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,22 +8,18 @@ public class Lvl2 : MonoBehaviour
 {
     public List<GameObject> peces, initialPos, instantiates;
 
-    private GameObject activeCard;
-
-    public static int cardCount, points, errors;
-
-    private int previousCount;
+    public static int points, errors;
 
     private float time;
 
-    public Text  timer, finalTime;
+    public Text  timer, finalTime, counterText;
 
     private int min, sec;
-    public static int state, numCorPieces; //0 = intro, 1 = game, 2 = pause, 3 = outro
+    public static int state, numCorPieces, counter; //state {0 = intro, 1 = game, 2 = pause, 3 = outro}
 
-    public GameObject action, game, outro, pause, introexp, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3; 
 
-    private bool done;
+    private bool done, gameOver;
 
     void Start(){
 
@@ -73,7 +70,7 @@ public class Lvl2 : MonoBehaviour
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
-                PlayerPrefs.SetInt("Lvl2", 1);
+                //PlayerPrefs.SetInt("Lvl2", 1);
                 break;
             default:
                 break;
@@ -87,11 +84,41 @@ public class Lvl2 : MonoBehaviour
             sec = Mathf.FloorToInt(time % 60);
             timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
+
+        switch(counter){
+            case 2:
+                counterText.text = "2";
+                break;
+            case 1:
+                counterText.text = "1";
+                break;
+            case 0:
+                counterText.text = "0";
+                StartCoroutine(waitForGameOver());
+                break;
+            default:
+                break;
+        }
         
     }
 
+    IEnumerator waitForGameOver(){
+
+        //play lose music
+        yield return new WaitForSeconds(2);
+
+        gameOver = true;
+        min = 0;
+        sec = 0;
+        points = 0;
+        state = 3;
+    }
+
     private void cleanLvl(){
+        counter = 3;
+        counterText.text = "3";
         state = 0;
+        gameOver = false;
         pause.SetActive(false);
         action.SetActive(false);
         game.SetActive(false);
@@ -131,17 +158,19 @@ public class Lvl2 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (min == 0 && sec <= 30) { //3 estrella
-            star1.SetActive(true);
-            star2.SetActive(true);
-            star3.SetActive(true);
-        }
-        else if (min <= 1) { //2 estrellas
-            star1.SetActive(true);
-            star2.SetActive(true);
-        }
-        else { //1 estrellas
-            star1.SetActive(true);
+        if (!gameOver){
+            if (min == 0 && sec <= 30) { //3 estrella
+                star1.SetActive(true);
+                star2.SetActive(true);
+                star3.SetActive(true);
+            }
+            else if (min <= 1) { //2 estrellas
+                star1.SetActive(true);
+                star2.SetActive(true);
+            }
+            else { //1 estrellas
+                star1.SetActive(true);
+            }
         }
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");

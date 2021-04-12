@@ -642,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2845963756607808989, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3290221305229613250, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1100,17 +1100,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594987239 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3347982849704959967, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3207240477206344498, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
   m_PrefabInstance: {fileID: 1594987236}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594987240 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3347982849351845523, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3321098456681534988, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
   m_PrefabInstance: {fileID: 1594987236}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594987241 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3347982849447883780, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1297241421981550216, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
   m_PrefabInstance: {fileID: 1594987236}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1594987242 stripped
@@ -1692,6 +1692,17 @@ Transform:
   m_Father: {fileID: 2007906289}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2084830126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4570218035035440819, guid: 267595a4882a878419e9f3fe1222d489, type: 3}
+  m_PrefabInstance: {fileID: 898106660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2116247374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1820,7 @@ MonoBehaviour:
   - {fileID: 883090222}
   timer: {fileID: 898106663}
   finalTime: {fileID: 1594987242}
+  counterText: {fileID: 2084830126}
   action: {fileID: 898106662}
   game: {fileID: 2007906288}
   outro: {fileID: 1594987238}
