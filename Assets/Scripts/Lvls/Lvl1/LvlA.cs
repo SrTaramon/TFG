@@ -27,7 +27,7 @@ public class LvlA : MonoBehaviour
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3;
 
-    private bool done, restart;
+    private bool done, restart, gameOver;
 
     void Start(){
 
@@ -110,6 +110,15 @@ public class LvlA : MonoBehaviour
         }
 
         switch(counter){
+            case 5:
+                counterText.text = "5";
+                break;
+            case 4:
+                counterText.text = "4";
+                break;
+            case 3:
+                counterText.text = "3";
+                break;
             case 2:
                 counterText.text = "2";
                 break;
@@ -127,8 +136,9 @@ public class LvlA : MonoBehaviour
     }
 
     private void cleanLvl(){
-        counter = 3;
-        counterText.text = "3";
+        gameOver = false;
+        counter = 5;
+        counterText.text = "5";
         state = 0;
         pause.SetActive(false);
         action.SetActive(false);
@@ -159,6 +169,7 @@ public class LvlA : MonoBehaviour
         if (activeCard != null){
             activeCard.SetActive(false);
         }
+        gameOver = true;
         min = 0;
         sec = 0;
         points = 0;
@@ -206,14 +217,20 @@ public class LvlA : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        if (points >= 3) { //1 estrella
-            star1.SetActive(true);
-        }
-        if (points >= 7) { //2 estrellas
-            star2.SetActive(true);
-        }
-        if (points == 10) { //3 estrellas
-            star3.SetActive(true);
+        //mitja test1 1:26min
+        if (!gameOver){
+            if (min <= 1 && sec <= 20) { //3 estrella
+                star1.SetActive(true);
+                star2.SetActive(true);
+                star3.SetActive(true);
+            }
+            else if (min < 2) { //2 estrellas
+                star1.SetActive(true);
+                star2.SetActive(true);
+            }
+            else { //1 estrellas
+                star1.SetActive(true);
+            }
         }
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");

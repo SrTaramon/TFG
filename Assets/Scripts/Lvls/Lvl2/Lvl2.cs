@@ -86,6 +86,15 @@ public class Lvl2 : MonoBehaviour
         }
 
         switch(counter){
+            case 5:
+                counterText.text = "5";
+                break;
+            case 4:
+                counterText.text = "4";
+                break;
+            case 3:
+                counterText.text = "3";
+                break;
             case 2:
                 counterText.text = "2";
                 break;
@@ -115,8 +124,8 @@ public class Lvl2 : MonoBehaviour
     }
 
     private void cleanLvl(){
-        counter = 3;
-        counterText.text = "3";
+        counter = 5;
+        counterText.text = "5";
         state = 0;
         gameOver = false;
         pause.SetActive(false);
@@ -158,13 +167,14 @@ public class Lvl2 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
+        //mitja test1 42s
         if (!gameOver){
             if (min == 0 && sec <= 30) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
             }
-            else if (min <= 1) { //2 estrellas
+            else if (min == 0 && sec <= 50) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
             }
