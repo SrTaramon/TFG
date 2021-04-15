@@ -227,7 +227,7 @@ public class Lvl4 : MonoBehaviour
 
         //mitja test1 1:35min
         if (!gameOver){
-            if (min <= 1 && sec <= 25) { //3 estrella
+            if (min < 1 || (min <= 1 && sec <= 25)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);

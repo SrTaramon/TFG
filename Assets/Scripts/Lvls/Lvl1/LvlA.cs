@@ -22,7 +22,7 @@ public class LvlA : MonoBehaviour
 
     public Text  timer, finalTime, counterText;
 
-    private int min, sec;
+    private int min, sec, estrelles;
     private int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3;
@@ -109,7 +109,9 @@ public class LvlA : MonoBehaviour
             timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
 
-        switch(counter){
+        counterText.text = counter.ToString();
+
+        /* switch(counter){
             case 5:
                 counterText.text = "5";
                 break;
@@ -131,7 +133,7 @@ public class LvlA : MonoBehaviour
                 break;
             default:
                 break;
-        }
+        } */
         
     }
 
@@ -140,6 +142,7 @@ public class LvlA : MonoBehaviour
         counter = 5;
         counterText.text = "5";
         state = 0;
+        estrelles = 0;
         pause.SetActive(false);
         action.SetActive(false);
         game.SetActive(false);
@@ -219,21 +222,32 @@ public class LvlA : MonoBehaviour
 
         //mitja test1 1:26min
         if (!gameOver){
-            if (min <= 1 && sec <= 20) { //3 estrella
+            if (min < 1 || (min == 1 && sec <= 20)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                estrelles = 3;
             }
             else if (min < 2) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
+                estrelles = 2;
             }
             else { //1 estrellas
                 star1.SetActive(true);
+                estrelles = 1;
             }
         }
+
+        saveScore(estrelles, min, sec);
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
+    }
+
+    private void saveScore(int estrelles, int min, int sec){
+        SaveData.current.estrelles1 = estrelles;
+        SaveData.current.min1 = min;
+        SaveData.current.sec1 = sec;
     }
    
 }

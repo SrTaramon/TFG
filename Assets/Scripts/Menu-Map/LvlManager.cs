@@ -7,9 +7,7 @@ public class LvlManager : MonoBehaviour
 {
 
     void Update(){
-        if (PlayerPrefs.GetInt("LvlA") == 1){
-            Debug.Log("lvl completed");
-        }
+        Debug.Log(SaveData.current.estrelles1);
     }
     // Start is called before the first frame update
     void OnMouseDown(){
