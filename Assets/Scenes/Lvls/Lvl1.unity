@@ -1233,6 +1233,7 @@ MonoBehaviour:
   star1: {fileID: 3347982848809453082}
   star2: {fileID: 3347982848809453081}
   star3: {fileID: 3347982848809453080}
+  record: {fileID: 3347982848809453083}
 --- !u!114 &1440748460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,6 +1867,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1440748459}
+    - target: {fileID: 7156252315866560594, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
 --- !u!1 &3347982848809453080 stripped
@@ -1881,6 +1886,11 @@ GameObject:
 --- !u!1 &3347982848809453082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1297241421981550216, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+  m_PrefabInstance: {fileID: 3347982848809453079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3347982848809453083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7156252315866560594, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
   m_PrefabInstance: {fileID: 3347982848809453079}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6697122967620967945

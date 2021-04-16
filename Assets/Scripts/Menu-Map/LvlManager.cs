@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class LvlManager : MonoBehaviour
 {
 
-    void Update(){
-        Debug.Log(SaveData.current.estrelles1);
+    public void goToInsigneas(){
+        SceneManager.LoadScene("Insigneas");
     }
     // Start is called before the first frame update
-    void OnMouseDown(){
-        SceneManager.LoadScene(gameObject.name);
+    void Start(){
+        Debug.Log(SaveData.current.estrelles1);
+        Debug.Log(SaveData.current.temps1);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

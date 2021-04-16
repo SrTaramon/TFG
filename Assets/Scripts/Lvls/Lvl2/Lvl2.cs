@@ -14,10 +14,10 @@ public class Lvl2 : MonoBehaviour
 
     public Text  timer, finalTime, counterText;
 
-    private int min, sec;
+    private int min, sec, estrelles;
     public static int state, numCorPieces, counter; //state {0 = intro, 1 = game, 2 = pause, 3 = outro}
 
-    public GameObject action, game, outro, pause, introexp, star1, star2, star3; 
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3, record;
 
     private bool done, gameOver;
 
@@ -173,16 +173,33 @@ public class Lvl2 : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                estrelles = 3;
             }
             else if (min == 0 && sec <= 50) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
+                estrelles = 2;
             }
             else { //1 estrellas
+                estrelles = 1;
                 star1.SetActive(true);
             }
         }
+
+        saveScore(estrelles, (min * 60) + sec);
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
+    }
+
+    private void saveScore(int estrelles, int temps){
+        SaveData.current = SerializationManager.Load();
+        if (temps < SaveData.current.temps1){
+            SaveData.current.temps1 = temps;
+            record.SetActive(true);
+        } else {
+            record.SetActive(false);
+        }
+        if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
+        SerializationManager.Save(SaveData.current);
     }
 }

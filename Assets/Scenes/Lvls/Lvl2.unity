@@ -187,6 +187,7 @@ MonoBehaviour:
   star1: {fileID: 978371133}
   star2: {fileID: 978371132}
   star3: {fileID: 978371131}
+  record: {fileID: 978371134}
 --- !u!4 &32546465
 Transform:
   m_ObjectHideFlags: 0
@@ -773,6 +774,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Lvl2, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7156252315866560594, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
 --- !u!224 &978371129 stripped
@@ -798,6 +803,11 @@ GameObject:
 --- !u!1 &978371133 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1297241421981550216, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+  m_PrefabInstance: {fileID: 978371128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &978371134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7156252315866560594, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
   m_PrefabInstance: {fileID: 978371128}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1013948037

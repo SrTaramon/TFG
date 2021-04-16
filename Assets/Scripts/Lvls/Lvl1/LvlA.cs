@@ -25,7 +25,7 @@ public class LvlA : MonoBehaviour
     private int min, sec, estrelles;
     private int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
 
-    public GameObject action, game, outro, pause, introexp, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3, record;
 
     private bool done, restart, gameOver;
 
@@ -239,15 +239,21 @@ public class LvlA : MonoBehaviour
             }
         }
 
-        saveScore(estrelles, min, sec);
+        saveScore(estrelles, (min * 60) + sec);
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
     }
 
-    private void saveScore(int estrelles, int min, int sec){
-        SaveData.current.estrelles1 = estrelles;
-        SaveData.current.min1 = min;
-        SaveData.current.sec1 = sec;
+    private void saveScore(int estrelles, int temps){
+        SaveData.current = SerializationManager.Load();
+        if (temps < SaveData.current.temps1){
+            SaveData.current.temps1 = temps;
+            record.SetActive(true);
+        } else {
+            record.SetActive(false);
+        }
+        if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
+        SerializationManager.Save(SaveData.current);
     }
    
 }

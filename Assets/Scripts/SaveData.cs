@@ -27,9 +27,7 @@ public class SaveData
     }
 
     public int selectedAvatar; //1, 2, 3, 4
-    public int min1, min2, min3, min4, min5, min6;
-
-    public int sec1, sec2, sec3, sec4, sec5, sec6;
+    public int temps1, temps2, temps3, temps4, temps5, temps6;
 
     public int estrelles1, estrelles2, estrelles3, estrelles4, estrelles5, estrelles6;
 }
