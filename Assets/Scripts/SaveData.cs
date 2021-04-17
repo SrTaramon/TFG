@@ -30,4 +30,6 @@ public class SaveData
     public int temps1, temps2, temps3, temps4, temps5, temps6;
 
     public int estrelles1, estrelles2, estrelles3, estrelles4, estrelles5, estrelles6;
+
+    public bool introDone;
 }

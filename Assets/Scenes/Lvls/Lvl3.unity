@@ -1139,6 +1139,7 @@ MonoBehaviour:
   star1: {fileID: 1576676059}
   star2: {fileID: 1576676058}
   star3: {fileID: 1576676057}
+  record: {fileID: 1576676060}
   animator: {fileID: 749595154}
 --- !u!4 &1474211602
 Transform:
@@ -1278,7 +1279,7 @@ RectTransform:
   m_GameObject: {fileID: 1482080789}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.3501, z: 1}
+  m_LocalScale: {x: 1.1727289, y: 1.141118, z: 0.84521}
   m_Children: []
   m_Father: {fileID: 1576676055}
   m_RootOrder: 10
@@ -1308,7 +1309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6218484435788129546, guid: 02362eaa6fa0594468b5679dcd525fc4, type: 3}
+  m_Sprite: {fileID: 1101883175571768224, guid: 02362eaa6fa0594468b5679dcd525fc4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1446,6 +1447,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1564246589}
     m_Modifications:
+    - target: {fileID: 3347982848806667833, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3347982849015894409, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1554,6 +1559,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Lvl3, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7156252315866560594, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
 --- !u!224 &1576676055 stripped
@@ -1585,6 +1594,11 @@ GameObject:
 --- !u!1 &1576676059 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1297241421981550216, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+  m_PrefabInstance: {fileID: 1576676054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1576676060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7156252315866560594, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
   m_PrefabInstance: {fileID: 1576676054}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1639655486

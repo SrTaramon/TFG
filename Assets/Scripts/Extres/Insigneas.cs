@@ -17,24 +17,28 @@ public class Insigneas : MonoBehaviour
 
         if (SaveData.current.estrelles1 != 0){
             i1.SetActive(true);
+            i1.gameObject.GetComponent<Animator>().SetBool("new", true);
         } else {
             i1.SetActive(false);
         }
 
         if (SaveData.current.estrelles2 != 0){
             i2.SetActive(true);
+            i2.gameObject.GetComponent<Animator>().SetBool("new", true);
         } else {
             i2.SetActive(false);
         }
 
         if (SaveData.current.estrelles3 != 0){
             i3.SetActive(true);
+            i3.gameObject.GetComponent<Animator>().SetBool("new", true);
         } else {
             i3.SetActive(false);
         }
 
         if (SaveData.current.estrelles4 != 0){
             i4.SetActive(true);
+            i4.gameObject.GetComponent<Animator>().SetBool("new", true);
         } else {
             i4.SetActive(false);
         }

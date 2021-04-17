@@ -246,11 +246,13 @@ public class LvlA : MonoBehaviour
 
     private void saveScore(int estrelles, int temps){
         SaveData.current = SerializationManager.Load();
-        if (temps < SaveData.current.temps1){
+        if (SaveData.current.temps1 == 0){
             SaveData.current.temps1 = temps;
             record.SetActive(true);
-        } else {
-            record.SetActive(false);
+        }
+        else if (temps < SaveData.current.temps1){
+            SaveData.current.temps1 = temps;
+            record.SetActive(true);
         }
         if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
         SerializationManager.Save(SaveData.current);

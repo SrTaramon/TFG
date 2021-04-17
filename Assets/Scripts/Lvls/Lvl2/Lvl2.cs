@@ -193,13 +193,15 @@ public class Lvl2 : MonoBehaviour
 
     private void saveScore(int estrelles, int temps){
         SaveData.current = SerializationManager.Load();
-        if (temps < SaveData.current.temps1){
-            SaveData.current.temps1 = temps;
+        if (SaveData.current.temps2 == 0){
+            SaveData.current.temps2 = temps;
             record.SetActive(true);
-        } else {
-            record.SetActive(false);
         }
-        if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
+        else if (temps < SaveData.current.temps2){
+            SaveData.current.temps2 = temps;
+            record.SetActive(true);
+        }
+        if (estrelles > SaveData.current.estrelles2) SaveData.current.estrelles2 = estrelles;
         SerializationManager.Save(SaveData.current);
     }
 }

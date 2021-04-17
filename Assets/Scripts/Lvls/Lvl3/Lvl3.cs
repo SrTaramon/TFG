@@ -11,7 +11,7 @@ public class Lvl3 : MonoBehaviour
 
     public static int points, errors, counter;
 
-    private int count;
+    private int count, estrelles;
 
     private float time;
 
@@ -20,7 +20,7 @@ public class Lvl3 : MonoBehaviour
     private int min, sec;
     public static int state; //0 = intro, 1 = game, 2 = pause, 3 = outro
 
-    public GameObject action, game, outro, pause, introexp, star1, star2, star3;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3, record;
     
     public static bool fals, cert;
 
@@ -232,16 +232,35 @@ public class Lvl3 : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                estrelles = 3;
             }
             else if (min <= 1 && sec >= 30) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
+                estrelles = 2;
             }
             else { //1 estrellas
                 star1.SetActive(true);
+                estrelles = 1;
             }
         }
+
+        saveScore(estrelles, (min * 60) + sec);
         
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
+    }
+
+    private void saveScore(int estrelles, int temps){
+        SaveData.current = SerializationManager.Load();
+        if (SaveData.current.temps3 == 0){
+            SaveData.current.temps3 = temps;
+            record.SetActive(true);
+        }
+        else if (temps < SaveData.current.temps3){
+            SaveData.current.temps3 = temps;
+            record.SetActive(true);
+        }
+        if (estrelles > SaveData.current.estrelles3) SaveData.current.estrelles3 = estrelles;
+        SerializationManager.Save(SaveData.current);
     }
 }
