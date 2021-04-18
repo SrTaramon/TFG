@@ -94,7 +94,8 @@ public class Insigneas : MonoBehaviour
         if (timeAc >= 60){
             int min = timeAc % 60;
             int sec = timeAc - (60 * min);
-            return min.ToString() + ":" + sec.ToString() + "min";
+            if (sec <= 9) return min.ToString() + ":0" + sec.ToString() + "min";
+            else return min.ToString() + ":" + sec.ToString() + "min";
         } else {
             return timeAc.ToString() + "s";
         }
