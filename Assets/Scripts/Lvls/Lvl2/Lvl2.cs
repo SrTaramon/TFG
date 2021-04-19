@@ -116,8 +116,15 @@ public class Lvl2 : MonoBehaviour
 
     private void gameAction() {
         if (numCorPieces == 7){
-            state = 3;
+            StartCoroutine(waitForGameEnds());
         }
+    }
+
+    IEnumerator waitForGameEnds(){
+
+        yield return new WaitForSeconds(2);
+
+        state = 3;
     }
     public void pauseActive(){
         state = 2;
