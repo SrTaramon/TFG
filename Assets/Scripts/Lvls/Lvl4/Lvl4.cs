@@ -94,29 +94,9 @@ public class Lvl4 : MonoBehaviour
                 break;
         }
 
-        switch(counter){
-            case 5:
-                counterText.text = "5";
-                break;
-            case 4:
-                counterText.text = "4";
-                break;
-            case 3:
-                counterText.text = "3";
-                break;
-            case 2:
-                counterText.text = "2";
-                break;
-            case 1:
-                counterText.text = "1";
-                break;
-            case 0:
-                counterText.text = "0";
-                StartCoroutine(waitForGameOver());
-                break;
-            default:
-                break;
-        }
+        counterText.text = counter.ToString();
+
+        if (counter == 0) StartCoroutine(waitForGameOver());
 
         //Timer
         if (state == 1){
@@ -250,16 +230,18 @@ public class Lvl4 : MonoBehaviour
     }
 
     private void saveScore(int estrelles, int temps){
-        SaveData.current = SerializationManager.Load();
-        if (SaveData.current.temps4 == 0){
-            SaveData.current.temps4 = temps;
-            record.SetActive(true);
+        if (estrelles != 0){
+            SaveData.current = SerializationManager.Load();
+            if (SaveData.current.temps4 == 0){
+                SaveData.current.temps4 = temps;
+                record.SetActive(true);
+            }
+            else if (temps < SaveData.current.temps4){
+                SaveData.current.temps4 = temps;
+                record.SetActive(true);
+            }
+            if (estrelles > SaveData.current.estrelles4) SaveData.current.estrelles4 = estrelles;
+            SerializationManager.Save(SaveData.current);
         }
-        else if (temps < SaveData.current.temps4){
-            SaveData.current.temps4 = temps;
-            record.SetActive(true);
-        }
-        if (estrelles > SaveData.current.estrelles4) SaveData.current.estrelles4 = estrelles;
-        SerializationManager.Save(SaveData.current);
     }
 }

@@ -111,29 +111,7 @@ public class LvlA : MonoBehaviour
 
         counterText.text = counter.ToString();
 
-        /* switch(counter){
-            case 5:
-                counterText.text = "5";
-                break;
-            case 4:
-                counterText.text = "4";
-                break;
-            case 3:
-                counterText.text = "3";
-                break;
-            case 2:
-                counterText.text = "2";
-                break;
-            case 1:
-                counterText.text = "1";
-                break;
-            case 0:
-                counterText.text = "0";
-                StartCoroutine(waitForGameOver());
-                break;
-            default:
-                break;
-        } */
+        if (counter == 0) StartCoroutine(waitForGameOver());
         
     }
 
@@ -173,6 +151,7 @@ public class LvlA : MonoBehaviour
             activeCard.SetActive(false);
         }
         gameOver = true;
+        estrelles = 0;
         min = 0;
         sec = 0;
         points = 0;
@@ -245,17 +224,19 @@ public class LvlA : MonoBehaviour
     }
 
     private void saveScore(int estrelles, int temps){
-        SaveData.current = SerializationManager.Load();
-        if (SaveData.current.temps1 == 0){
-            SaveData.current.temps1 = temps;
-            record.SetActive(true);
+        if (estrelles != 0){
+            SaveData.current = SerializationManager.Load();
+            if (SaveData.current.temps1 == 0){
+                SaveData.current.temps1 = temps;
+                record.SetActive(true);
+            }
+            else if (temps < SaveData.current.temps1){
+                SaveData.current.temps1 = temps;
+                record.SetActive(true);
+            }
+            if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
+                SerializationManager.Save(SaveData.current);
         }
-        else if (temps < SaveData.current.temps1){
-            SaveData.current.temps1 = temps;
-            record.SetActive(true);
-        }
-        if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
-        SerializationManager.Save(SaveData.current);
     }
    
 }

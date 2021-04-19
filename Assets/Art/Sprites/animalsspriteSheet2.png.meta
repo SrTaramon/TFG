@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: ba95ada45213731489518d41e172d765
+guid: aa81ab63057eaf44d993cd6bdf1b089d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8653976703993125991
-    second: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_0
+      213: 1836633124701637899
+    second: animalsspriteSheet2_0
   - first:
-      213: -1623170489590984439
-    second: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_1
+      213: -1932882318525539645
+    second: animalsspriteSheet2_1
   - first:
-      213: 2145859468340054417
-    second: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_2
+      213: -1865115123351598495
+    second: animalsspriteSheet2_2
   - first:
-      213: 4763969748190269189
-    second: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_3
+      213: 3310394242315182434
+    second: animalsspriteSheet2_3
+  - first:
+      213: -407143608369031144
+    second: animalsspriteSheet2_4
+  - first:
+      213: -3848968356259127199
+    second: animalsspriteSheet2_5
+  - first:
+      213: 1023851818557105487
+    second: animalsspriteSheet2_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_0
+      name: animalsspriteSheet2_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 60
-        width: 147
-        height: 180
+        x: 90
+        y: 73
+        width: 366
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76c140826f9191870800000000000000
-      internalID: 8653976703993125991
+      spriteID: b0d8e8498180d7910800000000000000
+      internalID: 1836633124701637899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_1
+      name: animalsspriteSheet2_1
       rect:
         serializedVersion: 2
-        x: 248
-        y: 58
-        width: 152
-        height: 197
+        x: 636
+        y: 70
+        width: 378
+        height: 488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90158062a075979e0800000000000000
-      internalID: -1623170489590984439
+      spriteID: 3cad6aba5c50d25e0800000000000000
+      internalID: -1932882318525539645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_2
+      name: animalsspriteSheet2_2
       rect:
         serializedVersion: 2
-        x: 435
-        y: 61
-        width: 163
-        height: 197
+        x: 1096
+        y: 79
+        width: 406
+        height: 488
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 199415431df97cd10800000000000000
-      internalID: 2145859468340054417
+      spriteID: 16a4b675da7cd16e0800000000000000
+      internalID: -1865115123351598495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WhatsApp_Image_2021-03-29_at_13.45.10-removebg-preview_3
+      name: animalsspriteSheet2_3
       rect:
         serializedVersion: 2
-        x: 631
-        y: 61
-        width: 187
-        height: 181
+        x: 1568
+        y: 80
+        width: 474
+        height: 447
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +199,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50f8691de350d1240800000000000000
-      internalID: 4763969748190269189
+      spriteID: 261e1bf2602e0fd20800000000000000
+      internalID: 3310394242315182434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animalsspriteSheet2_4
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 66
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818d79a9b09895af0800000000000000
+      internalID: -407143608369031144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animalsspriteSheet2_5
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160a4753ca7b59ac0800000000000000
+      internalID: -3848968356259127199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animalsspriteSheet2_6
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 0
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45ebbbedc3753e00800000000000000
+      internalID: 1023851818557105487
       vertices: []
       indices: 
       edges: []

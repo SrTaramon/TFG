@@ -91,13 +91,13 @@ public class Insigneas : MonoBehaviour
     }
 
     private string transformTime(int timeAc){
+        int min = (timeAc / 60);
+        int sec = (timeAc % 60);
         if (timeAc >= 60){
-            int min = timeAc % 60;
-            int sec = timeAc - (60 * min);
             if (sec <= 9) return min.ToString() + ":0" + sec.ToString() + "min";
             else return min.ToString() + ":" + sec.ToString() + "min";
         } else {
-            return timeAc.ToString() + "s";
+            return "0:" + timeAc.ToString() + "s";
         }
     }
 
