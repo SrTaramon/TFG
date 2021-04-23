@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ZoomPan : MonoBehaviour
 {
-    Vector3 touchStart;
-    public float zoomOutMin = 5;
-    public float zoomOutMax = 8;
+    Vector3 dragOrigen;
+    private float mapMinY = -5;
+    private float mapMaxY = 20;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,32 +18,25 @@ public class ZoomPan : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)){
-            touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            dragOrigen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
-        if (Input.touchCount == 2){
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
-
-            Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
-            Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
-
-            float prevMagnitude = (touch0PrevPos - touch1PrevPos).magnitude;
-            float currentMagnitude = (touch0.position - touch1.position).magnitude;
-
-            float difference = currentMagnitude - prevMagnitude;
-
-            Zoom(difference * 0.01f);
-
-        } else if (Input.GetMouseButton(0)){
-            Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Camera.main.transform.position += direction;
+        if (Input.GetMouseButton(0)){
+            Vector3 difference = dragOrigen - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            difference.x = Camera.main.transform.position.x;
+            Camera.main.transform.position = CameraClamp(Camera.main.transform.position + difference);
         }
-
-        Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
 
-    void Zoom(float increment){
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - increment, zoomOutMin, zoomOutMax);
+    private Vector3 CameraClamp(Vector3 targetPosisiton){
+
+        float camHeight = Camera.main.orthographicSize;
+
+        float minY = mapMinY + camHeight;
+        float maxY = mapMaxY - camHeight;
+
+        float newY = Mathf.Clamp(targetPosisiton.y, minY, maxY);
+
+        return new Vector3(targetPosisiton.x, newY, targetPosisiton.z);
     }
 }
