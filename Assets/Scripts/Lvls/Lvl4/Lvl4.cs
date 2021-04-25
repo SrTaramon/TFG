@@ -29,7 +29,7 @@ public class Lvl4 : MonoBehaviour
 
     private GameObject ball, img1, img2;
 
-    private bool created, gameOver;
+    private bool created, gameOver, once;
 
     public static bool needHappy, needSad;
 
@@ -122,6 +122,7 @@ public class Lvl4 : MonoBehaviour
     }
 
     private void cleanLvl(){
+        once = true;
         gameOver = false;
         counterText.text = "5";
         counter = 5;
@@ -221,6 +222,15 @@ public class Lvl4 : MonoBehaviour
             else { //1 estrellas
                 star1.SetActive(true);
                 estrelles = 1;
+            }
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Celebration");
+                once = false;
+            }
+        } else {
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Ohh");
+                once = false;
             }
         }
 

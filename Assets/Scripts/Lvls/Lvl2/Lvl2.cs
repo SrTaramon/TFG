@@ -19,7 +19,7 @@ public class Lvl2 : MonoBehaviour
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3, record;
 
-    private bool done, gameOver;
+    private bool done, gameOver, once;
 
     void Start(){
 
@@ -104,6 +104,7 @@ public class Lvl2 : MonoBehaviour
     }
 
     private void cleanLvl(){
+        once = true;
         counter = 5;
         counterText.text = "5";
         state = 0;
@@ -170,6 +171,16 @@ public class Lvl2 : MonoBehaviour
             else { //1 estrellas
                 estrelles = 1;
                 star1.SetActive(true);
+            }
+
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Celebration");
+                once = false;
+            }
+        } else {
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Ohh");
+                once = false;
             }
         }
 

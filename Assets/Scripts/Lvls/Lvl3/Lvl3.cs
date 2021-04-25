@@ -24,7 +24,7 @@ public class Lvl3 : MonoBehaviour
     
     public static bool fals, cert;
 
-    private bool gameOver; 
+    private bool gameOver, once;
 
     public Animator animator;
 
@@ -116,6 +116,7 @@ public class Lvl3 : MonoBehaviour
     }
 
     private void cleanLvl(){
+        once = true;
         gameOver = false;
         counter = 5;
         counterText.text = "5";
@@ -222,6 +223,15 @@ public class Lvl3 : MonoBehaviour
             else { //1 estrellas
                 star1.SetActive(true);
                 estrelles = 1;
+            }
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Celebration");
+                once = false;
+            }
+        } else {
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Ohh");
+                once = false;
             }
         }
 

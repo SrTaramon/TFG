@@ -10,6 +10,8 @@ public class Insigneas : MonoBehaviour
 
     public GameObject i1, i2, i3, i4, e1, e2, e3, panelIns;
 
+    private bool celebration;
+
     public Text crono, titol;
 
     private string t1 = "Cartas reproductoras";
@@ -23,6 +25,8 @@ public class Insigneas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        celebration = false;
+
         if (SerializationManager.Load() != null){
             SaveData.current = SerializationManager.Load();
         }
@@ -30,6 +34,7 @@ public class Insigneas : MonoBehaviour
         if (SaveData.current.estrelles1 != 0){
             i1.SetActive(true);
             i1.gameObject.GetComponent<Animator>().SetBool("new", true);
+            celebration = true;
         } else {
             i1.SetActive(false);
         }
@@ -37,6 +42,7 @@ public class Insigneas : MonoBehaviour
         if (SaveData.current.estrelles2 != 0){
             i2.SetActive(true);
             i2.gameObject.GetComponent<Animator>().SetBool("new", true);
+            celebration = true;
         } else {
             i2.SetActive(false);
         }
@@ -44,6 +50,7 @@ public class Insigneas : MonoBehaviour
         if (SaveData.current.estrelles3 != 0){
             i3.SetActive(true);
             i3.gameObject.GetComponent<Animator>().SetBool("new", true);
+            celebration = true;
         } else {
             i3.SetActive(false);
         }
@@ -51,9 +58,12 @@ public class Insigneas : MonoBehaviour
         if (SaveData.current.estrelles4 != 0){
             i4.SetActive(true);
             i4.gameObject.GetComponent<Animator>().SetBool("new", true);
+            celebration = true;
         } else {
             i4.SetActive(false);
         }
+
+        if (celebration) FindObjectOfType<AudioManager>().Play("Tada");
     }
 
     public void backToMap(){

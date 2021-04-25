@@ -27,7 +27,7 @@ public class LvlA : MonoBehaviour
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3, record;
 
-    private bool done, restart, gameOver;
+    private bool done, restart, gameOver, once;
 
     void Start(){
 
@@ -94,7 +94,6 @@ public class LvlA : MonoBehaviour
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
-                //PlayerPrefs.SetInt("Lvl1", 1);
                 break;
             default:
                 break;
@@ -116,6 +115,7 @@ public class LvlA : MonoBehaviour
     }
 
     private void cleanLvl(){
+        once = true;
         gameOver = false;
         counter = 5;
         counterText.text = "5";
@@ -215,6 +215,15 @@ public class LvlA : MonoBehaviour
             else { //1 estrellas
                 star1.SetActive(true);
                 estrelles = 1;
+            }
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Celebration");
+                once = false;
+            }
+        } else {
+            if (once){
+                FindObjectOfType<AudioManager>().Play("Ohh");
+                once = false;
             }
         }
 
