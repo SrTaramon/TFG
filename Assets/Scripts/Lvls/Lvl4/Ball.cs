@@ -57,7 +57,6 @@ public class Ball : MonoBehaviour
         endPosIm.x = -fingerPos.x;
         endPosIm.y = (-3.31f*2) - fingerPos.y;
         lineRenderer.SetPosition(1, endPosIm);
-        Debug.Log(endPos.y);
     }
 
     void OnMouseUp(){

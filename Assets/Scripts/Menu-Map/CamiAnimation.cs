@@ -22,15 +22,12 @@ public class CamiAnimation : MonoBehaviour
         switch (timer){
             case 40:
                 cami[1].gameObject.GetComponent<Animation>().Play();
-                Debug.Log("1");
             break;
             case 20:
                 cami[2].gameObject.GetComponent<Animation>().Play();
-                Debug.Log("2");
             break;
             case 0:
                 cami[3].gameObject.GetComponent<Animation>().Play();
-                Debug.Log("3");
             break;
         }
     }

@@ -923,6 +923,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Background
+    clip: {fileID: 8300000, guid: e31671e0785e37645b0ab60cd2ff116d, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Wrong
+    clip: {fileID: 8300000, guid: 53900d3afc6078c4a9bcc533f3aeb09c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Correct
+    clip: {fileID: 8300000, guid: fa3afe3efec3f6548b42dbf8a47c3629, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1063195857
 Transform:
   m_ObjectHideFlags: 0

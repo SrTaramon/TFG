@@ -83,14 +83,6 @@ public class PecesMovement : MonoBehaviour
                 transform.position = Vector3.Lerp(dropPosition, finalPos, t / 0.5f);
             }
         }
-
-        /* if (correct){
-            aniContl.SetBool("point", true);
-            aniContl.SetBool("error", false);
-        } else if (error){
-            aniContl.SetBool("error", true);
-            aniContl.SetBool("point", false);
-        } */
     }
 
 
@@ -132,6 +124,7 @@ public class PecesMovement : MonoBehaviour
 
     void OnMouseUp(){
         if (inside){
+            if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
             ++Lvl2.numCorPieces;
             bingo = true;
             goodMove = true;
@@ -140,6 +133,8 @@ public class PecesMovement : MonoBehaviour
             --Lvl2.counter;
             badMove = true;
             goodMove = false;
+            if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+            Handheld.Vibrate();
         }
         dropPosition = transform.position;
     }

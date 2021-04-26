@@ -27,9 +27,10 @@ public class SaveData
     }
 
     public int selectedAvatar; //1, 2, 3, 4
+
     public int temps1, temps2, temps3, temps4, temps5, temps6;
 
     public int estrelles1, estrelles2, estrelles3, estrelles4, estrelles5, estrelles6;
 
-    public bool introDone;
+    public bool introDone, desblo2, desblo5, desblo6, soundON;
 }

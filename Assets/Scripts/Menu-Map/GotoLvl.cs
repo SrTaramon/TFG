@@ -7,6 +7,6 @@ public class GotoLvl : MonoBehaviour
 {
     // Start is called before the first frame update
     void OnMouseDown(){
-        SceneManager.LoadScene(gameObject.name);
+        if (gameObject.tag == "NoBloc") SceneManager.LoadScene(gameObject.name);
     }
 }

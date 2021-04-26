@@ -33,6 +33,7 @@ public class Lvl3 : MonoBehaviour
         fals = false;
         cert = false;
         cleanLvl();
+        if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Background");
         introexp.SetActive(true);
         
     }
@@ -141,12 +142,15 @@ public class Lvl3 : MonoBehaviour
                 animator.SetBool("point", true);
                 StartCoroutine(waitForAnimationEnd("point"));
                 ++points;
+                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
             } else {
                 newMite();
                 animator.SetBool("error", true);
                 StartCoroutine(waitForAnimationEnd("error"));
                 --counter;
                 ++errors;
+                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                Handheld.Vibrate();
             }
             fals = false;
         } 
@@ -156,10 +160,13 @@ public class Lvl3 : MonoBehaviour
                 animator.SetBool("point", true);
                 StartCoroutine(waitForAnimationEnd("point"));
                 ++points;
+                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
             } else {
                 newMite();
                 animator.SetBool("error", true);
                 StartCoroutine(waitForAnimationEnd("error"));
+                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                Handheld.Vibrate();
                 --counter;
                 ++errors;
             }
@@ -225,11 +232,15 @@ public class Lvl3 : MonoBehaviour
                 estrelles = 1;
             }
             if (once){
-                FindObjectOfType<AudioManager>().Play("Celebration");
+                if (LvlManager.soundON) {
+                    FindObjectOfType<AudioManager>().Stop("Background");
+                    FindObjectOfType<AudioManager>().Play("Celebration");
+                }
                 once = false;
             }
         } else {
             if (once){
+                FindObjectOfType<AudioManager>().Stop("Background");
                 FindObjectOfType<AudioManager>().Play("Ohh");
                 once = false;
             }

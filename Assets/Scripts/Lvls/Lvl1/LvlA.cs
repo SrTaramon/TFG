@@ -40,7 +40,7 @@ public class LvlA : MonoBehaviour
         restart = false;
 
         introexp.SetActive(true);
-
+        if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Background");
         cleanLvl();
         
     }
@@ -217,12 +217,18 @@ public class LvlA : MonoBehaviour
                 estrelles = 1;
             }
             if (once){
-                FindObjectOfType<AudioManager>().Play("Celebration");
+                if (LvlManager.soundON) {
+                    FindObjectOfType<AudioManager>().Stop("Background");
+                    FindObjectOfType<AudioManager>().Play("Celebration");
+                }
                 once = false;
             }
         } else {
             if (once){
-                FindObjectOfType<AudioManager>().Play("Ohh");
+                if (LvlManager.soundON) {
+                    FindObjectOfType<AudioManager>().Stop("Background");
+                    FindObjectOfType<AudioManager>().Play("Ohh");
+                }
                 once = false;
             }
         }

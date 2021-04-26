@@ -63,7 +63,9 @@ public class Insigneas : MonoBehaviour
             i4.SetActive(false);
         }
 
-        if (celebration) FindObjectOfType<AudioManager>().Play("Tada");
+        if (celebration){
+            if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Tada");
+        } 
     }
 
     public void backToMap(){
