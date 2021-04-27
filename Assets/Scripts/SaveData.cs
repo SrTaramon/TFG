@@ -32,5 +32,5 @@ public class SaveData
 
     public int estrelles1, estrelles2, estrelles3, estrelles4, estrelles5, estrelles6;
 
-    public bool introDone, desblo2, desblo5, desblo6, soundON;
+    public bool introDone, desblo5, desblo7, soundON;
 }

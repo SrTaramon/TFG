@@ -89,7 +89,7 @@ public class Lvl3 : MonoBehaviour
                 break;
         }
 
-       counterText.text = counter.ToString();
+       if (counter >= 0) counterText.text = counter.ToString();
 
         if (counter == 0) StartCoroutine(waitForGameOver());
 
@@ -216,13 +216,13 @@ public class Lvl3 : MonoBehaviour
 
         //mitja test1 1:20min
         if (!gameOver){
-            if (min < 1 || (min <= 1 && sec <= 10)) { //3 estrella
+            if ((min < 1 || (min <= 1 && sec <= 10)) && (counter == 4 || counter == 5)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 estrelles = 3;
             }
-            else if (min <= 1 && sec >= 30) { //2 estrellas
+            else if (min <= 1 && sec >= 30 && counter == 3) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 estrelles = 2;

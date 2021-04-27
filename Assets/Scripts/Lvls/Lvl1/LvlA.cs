@@ -108,7 +108,7 @@ public class LvlA : MonoBehaviour
             timer.text = min.ToString("00") + ":" + sec.ToString("00");
         }
 
-        counterText.text = counter.ToString();
+        if (counter >= 0) counterText.text = counter.ToString();
 
         if (counter == 0) StartCoroutine(waitForGameOver());
         
@@ -201,13 +201,13 @@ public class LvlA : MonoBehaviour
 
         //mitja test1 1:26min
         if (!gameOver){
-            if (min < 1 || (min == 1 && sec <= 20)) { //3 estrella
+            if (min < 1 || (min == 1 && sec <= 20) && (counter == 4 || counter == 5)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 estrelles = 3;
             }
-            else if (min < 2) { //2 estrellas
+            else if (min < 2 && counter == 3) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 estrelles = 2;

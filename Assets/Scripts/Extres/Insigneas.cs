@@ -16,8 +16,8 @@ public class Insigneas : MonoBehaviour
 
     private string t1 = "Cartas reproductoras";
     private string t2 = "Construcción de símbolos";
-    private string t3 = "Pelotas emocionales";
-    private string t4 = "Destruyendo mitos";
+    private string t4 = "Pelotas emocionales";
+    private string t3 = "Destruyendo mitos";
     private string t5 = "Fuga de letras";
     private string t6 = "Memory";
 
