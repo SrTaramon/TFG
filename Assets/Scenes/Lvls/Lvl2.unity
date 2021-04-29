@@ -188,6 +188,7 @@ MonoBehaviour:
   star2: {fileID: 978371132}
   star3: {fileID: 978371131}
   record: {fileID: 978371134}
+  insignea: {fileID: 1013948037}
 --- !u!4 &32546465
 Transform:
   m_ObjectHideFlags: 0

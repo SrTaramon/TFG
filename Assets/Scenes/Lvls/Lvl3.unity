@@ -1226,6 +1226,7 @@ MonoBehaviour:
   star2: {fileID: 1576676058}
   star3: {fileID: 1576676057}
   record: {fileID: 1576676060}
+  insignea: {fileID: 1482080789}
   animator: {fileID: 749595154}
 --- !u!4 &1474211602
 Transform:

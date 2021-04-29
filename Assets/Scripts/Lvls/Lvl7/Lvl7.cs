@@ -4,73 +4,96 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Lvl2 : MonoBehaviour
+public class Lvl7 : MonoBehaviour
 {
-    public List<GameObject> peces, initialPos, instantiates;
 
-    public static int points, errors;
+    private List<string> paraules;
+
+    private GameObject activeCard;
+
+    public static bool active;
+
+    public static int cardCount, points, errors, counter;
+
+    private int previousCount;
 
     private float time;
 
     public Text  timer, finalTime, counterText;
 
     private int min, sec, estrelles;
-    public static int state, numCorPieces, counter; //state {0 = intro, 1 = game, 2 = pause, 3 = outro}
+    private int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3, record, insignea;
 
-    private bool done, gameOver, once;
+    private bool done, restart, gameOver, once;
 
+    // Start is called before the first frame update
     void Start(){
 
         time = 0;
-        numCorPieces = 0;
         cleanLvl();
         introexp.SetActive(true);
         if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Background");
     }
 
-    //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
+    private void cleanLvl()
+    {
+        once = true;
+        gameOver = false;
+        counter = 5;
+        counterText.text = "5";
+        state = 0;
+        estrelles = 0;
+        pause.SetActive(false);
+        action.SetActive(false);
+        game.SetActive(false);
+        outro.SetActive(false);
+    }
+
     public void startGame(){
+
+        paraules = new List<string>(new string[] { "OVARIOS", "CLITORIS", "UTERO", "VAGINA", "TESTICULOS", "PROSTATA", "GLANDE", "URETRA"});
+
+        for (int i = 0; i < paraules.Count; ++i){
+            string temp = paraules[i];
+            int randomIndex = Random.Range(i, paraules.Count);
+            paraules[i] = paraules[randomIndex];
+            paraules[randomIndex] = temp;
+        }
 
         time = 0;
         points = 0;
         errors = 0;
+
         introexp.SetActive(false);
 
-        for (int i = 0; i < peces.Count; ++i){
-            instantiates[i] = Instantiate(peces[i], initialPos[i].transform.position, Quaternion.identity);
-        }
-
-        done = true;
+        
         state = 1;
     }
 
-    //Consultem l'estat en que ens trobem
-    void Update(){
-
-        switch (state) {
+    // Update is called once per frame
+    void Update()
+    {
+       switch (state) {
             case 0:
                 Start();
                 break;
             case 1:
-                action.SetActive(true);
                 game.SetActive(true);
-                PecesMovement.paused = false;
+                action.SetActive(true);
                 gameAction();
                 break;
             case 2:
+                game.SetActive(false);
                 action.SetActive(false);
                 pause.SetActive(true);
-                PecesMovement.paused = true;
                 break;
             case 3:
                 updateScore(min, sec, points, errors);
-                destroyAllPieces();
                 game.SetActive(false);
                 action.SetActive(false);
                 outro.SetActive(true);
-                //PlayerPrefs.SetInt("Lvl2", 1);
                 break;
             default:
                 break;
@@ -78,7 +101,7 @@ public class Lvl2 : MonoBehaviour
 
         //Timer
         if (state == 1){
-            time += Time.deltaTime;
+             time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
             sec = Mathf.FloorToInt(time % 60);
@@ -88,47 +111,10 @@ public class Lvl2 : MonoBehaviour
         if (counter >= 0) counterText.text = counter.ToString();
 
         if (counter == 0) StartCoroutine(waitForGameOver());
-        
-    }
-
-    IEnumerator waitForGameOver(){
-
-        //play lose music
-        yield return new WaitForSeconds(2);
-
-        gameOver = true;
-        min = 0;
-        sec = 0;
-        points = 0;
-        state = 3;
-    }
-
-    private void cleanLvl(){
-        once = true;
-        counter = 5;
-        counterText.text = "5";
-        state = 0;
-        gameOver = false;
-        pause.SetActive(false);
-        action.SetActive(false);
-        game.SetActive(false);
-        outro.SetActive(false);
+         
     }
 
     private void gameAction() {
-        if (numCorPieces == 7){
-            StartCoroutine(waitForGameEnds());
-        }
-    }
-
-    IEnumerator waitForGameEnds(){
-
-        yield return new WaitForSeconds(2);
-
-        state = 3;
-    }
-    public void pauseActive(){
-        state = 2;
     }
 
     public void endLvl(){
@@ -143,28 +129,38 @@ public class Lvl2 : MonoBehaviour
 
     public void restartLvl(){
         pause.SetActive(false);
-        destroyAllPieces();
         startGame();
     }
 
-    private void destroyAllPieces(){
-        for (int i = 0; i < peces.Count; ++i){
-            Destroy(instantiates[i]);
-        }
+    public void pauseActive(){
+        state = 2;
+    }
+
+    IEnumerator waitForGameOver(){
+
+        //play lose music
+        yield return new WaitForSeconds(2);
+
+        gameOver = true;
+        estrelles = 0;
+        min = 0;
+        sec = 0;
+        points = 0;
+        state = 3;
     }
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        //mitja test1 42s
+        //mitja test1 1:26min
         if (!gameOver){
-            if ((min == 0 && sec <= 30) && (counter == 4 || counter == 5)) { //3 estrella
+            if (min < 1 || (min == 1 && sec <= 20) && (counter == 4 || counter == 5)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 insignea.SetActive(true);
                 estrelles = 3;
             }
-            else if (min == 0 && sec <= 50 && counter == 3) { //2 estrellas
+            else if (min < 2 && counter == 3) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 insignea.SetActive(true);
@@ -175,7 +171,6 @@ public class Lvl2 : MonoBehaviour
                 insignea.SetActive(true);
                 estrelles = 1;
             }
-
             if (once){
                 if (LvlManager.soundON) {
                     FindObjectOfType<AudioManager>().Stop("Background");
@@ -198,19 +193,20 @@ public class Lvl2 : MonoBehaviour
         finalTime.text = min.ToString("00") + ":" + sec.ToString("00");
     }
 
+
     private void saveScore(int estrelles, int temps){
         if (estrelles != 0){
             SaveData.current = SerializationManager.Load();
-            if (SaveData.current.temps2 == 0){
-                SaveData.current.temps2 = temps;
+            if (SaveData.current.temps5 == 0){
+                SaveData.current.temps5 = temps;
                 record.SetActive(true);
             }
-            else if (temps < SaveData.current.temps2){
-                SaveData.current.temps2 = temps;
+            else if (temps < SaveData.current.temps5){
+                SaveData.current.temps5 = temps;
                 record.SetActive(true);
             }
-            if (estrelles > SaveData.current.estrelles2) SaveData.current.estrelles2 = estrelles;
-            SerializationManager.Save(SaveData.current);
+            if (estrelles > SaveData.current.estrelles5) SaveData.current.estrelles5 = estrelles;
+                SerializationManager.Save(SaveData.current);
         }
     }
 }

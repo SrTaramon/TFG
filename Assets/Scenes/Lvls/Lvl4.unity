@@ -2004,6 +2004,7 @@ MonoBehaviour:
   star2: {fileID: 1594987240}
   star3: {fileID: 1594987239}
   record: {fileID: 1594987243}
+  insignea: {fileID: 910578101}
 --- !u!4 &2140800541
 Transform:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Lvl4 : MonoBehaviour
     private int min, sec, estrelles;
     public static int state, counter; //state {0 = intro, 1 = game, 2 = pause, 3 = outro}
 
-    public GameObject action, game, outro, pause, introexp, star1, star2, star3, record;
+    public GameObject action, game, outro, pause, introexp, star1, star2, star3, record, insignea;
     
     public static bool fals, cert; 
 
@@ -213,15 +213,18 @@ public class Lvl4 : MonoBehaviour
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
+                insignea.SetActive(true);
                 estrelles = 3;
             }
             else if (min <= 1 && sec <= 50 && counter == 3) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
+                insignea.SetActive(true);
                 estrelles = 2;
             }
             else { //1 estrellas
                 star1.SetActive(true);
+                insignea.SetActive(true);
                 estrelles = 1;
             }
             if (once){

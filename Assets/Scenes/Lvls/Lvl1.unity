@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &96895693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1308,6 +1308,7 @@ MonoBehaviour:
   star2: {fileID: 3347982848809453081}
   star3: {fileID: 3347982848809453080}
   record: {fileID: 3347982848809453083}
+  insignea: {fileID: 96895692}
 --- !u!114 &1440748460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1853,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1325447942}
     m_Modifications:
+    - target: {fileID: 3347982848806667833, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3347982849015894409, guid: b4ec2fd19922c4c4ab86cf86cb3b94d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
