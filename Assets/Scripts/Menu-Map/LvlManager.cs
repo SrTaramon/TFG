@@ -23,11 +23,9 @@ public class LvlManager : MonoBehaviour
         if (soundON){
             FindObjectOfType<AudioManager>().Stop("Theme");
             b.GetComponent<Image>().sprite = Off;
-            b.GetComponent<Image>().color = new Color(0.937255f, 0.1960784f, 0.2196079f, 1f);
         } else {
             FindObjectOfType<AudioManager>().Play("Theme");
             b.GetComponent<Image>().sprite = On;
-            b.GetComponent<Image>().color = new Color(0.3086497f, 0.8867924f, 0.1873976f, 1f);
         }
         soundON = !soundON;
     }

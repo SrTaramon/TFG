@@ -908,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1472919373
 Transform:
   m_ObjectHideFlags: 0
@@ -917,8 +917,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472919372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.98, y: 0.03, z: 0}
-  m_LocalScale: {x: 0.23984893, y: 0.25838113, z: 0.16336916}
+  m_LocalPosition: {x: -2.6, y: -0.1, z: 0}
+  m_LocalScale: {x: 0.581034, y: 0.6259283, z: 0.3957618}
   m_Children:
   - {fileID: 1758218655}
   m_Father: {fileID: 265976762}
@@ -964,7 +964,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7a258903ea8ef2541923d760793118d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 435138b086c19ec4b917d79c75aeb3dd, type: 3}
   m_Color: {r: 0.85098046, g: 0.75294125, b: 0.24705884, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
@@ -1258,6 +1258,14 @@ PrefabInstance:
     - target: {fileID: 521734909271165138, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 567461572424606010, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.745972
+      objectReference: {fileID: 0}
+    - target: {fileID: 567461572424606010, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 41.592987
       objectReference: {fileID: 0}
     - target: {fileID: 2845963756607808989, guid: 9fb369c73f1f271489b8197e5f4daccb, type: 3}
       propertyPath: m_IsActive

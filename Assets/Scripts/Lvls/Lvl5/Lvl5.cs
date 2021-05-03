@@ -13,7 +13,7 @@ public class Lvl5 : MonoBehaviour
 
     public static bool active;
 
-    public static int cardCount, points, errors, counter;
+    public static int cardCount, lletresColocades, points, errors, counter;
 
     private int previousCount;
 
@@ -115,6 +115,9 @@ public class Lvl5 : MonoBehaviour
     }
 
     private void gameAction() {
+        if (lletresColocades == 3){
+            //Next word
+        }
     }
 
     public void endLvl(){

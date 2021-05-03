@@ -10,7 +10,7 @@ public class LletresMovement : MonoBehaviour
     private Vector3 offset;
 
     private Vector3 direction;
-    //public GameObject end;
+    public GameObject end;
     private Vector3 initialPos, finalPos, dropPosition;
 
     public static bool correct, error, paused;
@@ -32,7 +32,7 @@ public class LletresMovement : MonoBehaviour
         paused = false;
         t = 0;
         initialPos = transform.position;
-        //finalPos = end.transform.position;
+        finalPos = end.transform.position;
         //aniContl = GetComponent<Animator>();
     }
 
@@ -40,7 +40,7 @@ public class LletresMovement : MonoBehaviour
     void Update()
     { 
 
-        createScreenBorders(10f, 5f);
+        createScreenBorders(8.2f, 4.3f);
 
         if (badMove){
             t += Time.deltaTime;
@@ -77,46 +77,46 @@ public class LletresMovement : MonoBehaviour
 
     void OnMouseDown()
     {
-       // if (!bingo && !paused){
+        if (!bingo && !paused){
             touchPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, touchPosition.z));
-        //}
+        }
     }
 
      void OnMouseDrag(){
-        //if (!bingo && !paused){ 
+        if (!bingo && !paused){ 
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, touchPosition.z);
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
             transform.position = curPosition;
-        //}
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        //if (col.gameObject.CompareTag(gameObject.name)){
+        if (col.gameObject.CompareTag(gameObject.name)){
             inside = true;
-        //}
+        }
     }
 
     void OnTriggerExit2D(Collider2D col){
-        //if (col.gameObject.CompareTag(gameObject.name)){
+        if (col.gameObject.CompareTag(gameObject.name)){
             inside = false;
-        //}
+        }
     }
 
     void OnMouseUp(){
-       // if (inside){
+       if (inside){
             if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
-            ++Lvl2.numCorPieces;
+            ++Lvl5.lletresColocades;
             bingo = true;
             goodMove = true;
             badMove = false;
-        //} else {
-            --Lvl2.counter;
+        } else {
+            --Lvl5.counter;
             badMove = true;
             goodMove = false;
             if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
             Handheld.Vibrate();
-        //}
+        }
         dropPosition = transform.position;
     }
 
