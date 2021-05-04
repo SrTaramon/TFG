@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class Lvl5 : MonoBehaviour
 {
 
-    private List<string> paraules;
+    public List<GameObject> paraules;
 
-    private GameObject activeCard;
+    private GameObject activeWord;
 
     public static bool active;
 
@@ -26,12 +26,13 @@ public class Lvl5 : MonoBehaviour
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3, record, insignea;
 
-    private bool done, restart, gameOver, once;
+    private bool done, restart, gameOver, once, once2;
 
     // Start is called before the first frame update
     void Start(){
 
         time = 0;
+        restart = false;
         cleanLvl();
         introexp.SetActive(true);
         if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Background");
@@ -40,6 +41,7 @@ public class Lvl5 : MonoBehaviour
     private void cleanLvl()
     {
         once = true;
+        once2 = true;
         gameOver = false;
         counter = 5;
         counterText.text = "5";
@@ -53,10 +55,8 @@ public class Lvl5 : MonoBehaviour
 
     public void startGame(){
 
-        paraules = new List<string>(new string[] { "OVARIOS", "CLITORIS", "UTERO", "VAGINA", "TESTICULOS", "PROSTATA", "GLANDE", "URETRA"});
-
         for (int i = 0; i < paraules.Count; ++i){
-            string temp = paraules[i];
+            GameObject temp = paraules[i];
             int randomIndex = Random.Range(i, paraules.Count);
             paraules[i] = paraules[randomIndex];
             paraules[randomIndex] = temp;
@@ -68,6 +68,10 @@ public class Lvl5 : MonoBehaviour
 
         introexp.SetActive(false);
 
+        if (!restart){
+            activeWord = Instantiate (paraules[0], paraules[0].transform.position, Quaternion.identity);
+            activeWord.transform.parent = game.gameObject.transform;
+        }
         
         state = 1;
     }
@@ -116,7 +120,8 @@ public class Lvl5 : MonoBehaviour
 
     private void gameAction() {
         if (lletresColocades == 3){
-            //Next word
+            once2 = true;
+            StartCoroutine(waitForAnotherWord());
         }
     }
 
@@ -132,11 +137,30 @@ public class Lvl5 : MonoBehaviour
 
     public void restartLvl(){
         pause.SetActive(false);
+        restart = true;
         startGame();
     }
 
     public void pauseActive(){
         state = 2;
+    }
+
+    IEnumerator waitForAnotherWord(){
+
+        //play lose music
+        yield return new WaitForSeconds(2);
+
+        if (once2){
+            lletresColocades = 0;
+            Destroy(activeWord);
+            if (points != 4){
+                activeWord = Instantiate (paraules[points], paraules[points].transform.position, Quaternion.identity);
+                activeWord.transform.parent = game.gameObject.transform;
+            } else {
+                state = 3;
+            }
+            once2 = false;
+        }
     }
 
     IEnumerator waitForGameOver(){
@@ -154,16 +178,16 @@ public class Lvl5 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        //mitja test1 1:26min
+        
         if (!gameOver){
-            if (min < 1 || (min == 1 && sec <= 20) && (counter == 4 || counter == 5)) { //3 estrella
+            if (min < 1 || (min == 1 && sec <= 30) && (counter == 4 || counter == 5)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 insignea.SetActive(true);
                 estrelles = 3;
             }
-            else if (min < 2 && counter == 3) { //2 estrellas
+            else if ((min >= 2 && sec <= 30) && counter == 3) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 insignea.SetActive(true);

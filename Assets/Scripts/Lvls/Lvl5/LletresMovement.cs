@@ -110,6 +110,7 @@ public class LletresMovement : MonoBehaviour
             bingo = true;
             goodMove = true;
             badMove = false;
+            if (Lvl5.lletresColocades == 3) ++Lvl5.points;
         } else {
             --Lvl5.counter;
             badMove = true;

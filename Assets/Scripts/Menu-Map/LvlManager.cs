@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LvlManager : MonoBehaviour
 {
 
-    public GameObject a1, a2, a3, a4, al1, al2, al3, al4, m1, m2, m3, m4, lvl2, lvl7, b1lvl7, b2lvl7, b3lvl7, b4lvl7, b5lvl7, lvl5, b1lvl5, b2lvl5, b3lvl5, b4lvl5, b5lvl5, blvl5, blvl7;
+    public GameObject a1, a2, a3, a4, al1, al2, al3, al4, m1, m2, m3, m4, m5, m7, lvl2, lvl7, b1lvl7, b2lvl7, b3lvl7, b4lvl7, b5lvl7, lvl5, b1lvl5, b2lvl5, b3lvl5, b4lvl5, b5lvl5, blvl5, blvl7;
 
     private bool once;
 
@@ -102,6 +102,10 @@ public class LvlManager : MonoBehaviour
         else m3.SetActive(false);
         if (SaveData.current.estrelles4 != 0) m4.SetActive(true);
         else m4.SetActive(false);
+        if (SaveData.current.estrelles5 != 0) m5.SetActive(true);
+        else m5.SetActive(false);
+        if (SaveData.current.estrelles7 != 0) m7.SetActive(true);
+        else m7.SetActive(false);
         
     }
 
