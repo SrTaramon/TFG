@@ -123,20 +123,22 @@ public class PecesMovement : MonoBehaviour
     }
 
     void OnMouseUp(){
-        if (inside){
-            if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
-            ++Lvl2.numCorPieces;
-            bingo = true;
-            goodMove = true;
-            badMove = false;
-        } else {
-            --Lvl2.counter;
-            badMove = true;
-            goodMove = false;
-            if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
-            Handheld.Vibrate();
+        if (!bingo){
+            if (inside){
+                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
+                ++Lvl2.numCorPieces;
+                bingo = true;
+                goodMove = true;
+                badMove = false;
+            } else {
+                --Lvl2.counter;
+                badMove = true;
+                goodMove = false;
+                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                Handheld.Vibrate();
+            }
+            dropPosition = transform.position;
         }
-        dropPosition = transform.position;
     }
 
 }
