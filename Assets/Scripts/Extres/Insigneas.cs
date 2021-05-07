@@ -8,18 +8,11 @@ using UnityEngine.SceneManagement;
 public class Insigneas : MonoBehaviour
 {
 
-    public GameObject i1, i2, i3, i4, i5, i7, e1, e2, e3, panelIns;
+    public GameObject i1, i2, i3, i4, i5, i7, e1, e2, e3, panelIns, t1, t2, t3, t4, t5, t7;
 
     private bool celebration;
 
-    public Text crono, titol;
-
-    private string t1 = "Cartas reproductoras";
-    private string t2 = "Construcción de símbolos";
-    private string t4 = "Pelotas emocionales";
-    private string t3 = "Destruyendo mitos";
-    private string t5 = "Fuga de letras";
-    private string t7 = "Memory";
+    public Text crono;
 
 
     // Start is called before the first frame update
@@ -87,32 +80,32 @@ public class Insigneas : MonoBehaviour
         int id = Int32.Parse(button.gameObject.name);
         switch (id){
             case 1:
-                titol.text = t1;
+                t1.SetActive(true);
                 crono.text = transformTime(SaveData.current.temps1);
                 activateStarts(SaveData.current.estrelles1);
                 break;
             case 2:
-                titol.text = t2;
+                t2.SetActive(true);
                 crono.text = transformTime(SaveData.current.temps2);
                 activateStarts(SaveData.current.estrelles2);
                 break;
             case 3:
-                titol.text = t3;
+                t3.SetActive(true);
                 crono.text = transformTime(SaveData.current.temps3);
                 activateStarts(SaveData.current.estrelles3);
                 break;
             case 4:
-                titol.text = t4;
+                t4.SetActive(true);
                 crono.text = transformTime(SaveData.current.temps4);
                 activateStarts(SaveData.current.estrelles4);
                 break;
             case 5:
-                titol.text = t5;
+                t5.SetActive(true);
                 crono.text = transformTime(SaveData.current.temps5);
                 activateStarts(SaveData.current.estrelles5);
                 break;
             case 7:
-                titol.text = t7;
+                t7.SetActive(true);
                 crono.text = transformTime(SaveData.current.temps7);
                 activateStarts(SaveData.current.estrelles7);
                 break;
@@ -151,11 +144,16 @@ public class Insigneas : MonoBehaviour
     }
 
     public void stopInfo(){
-        titol.text = "";
         crono.text = "";
         e1.SetActive(false);
         e2.SetActive(false);
         e3.SetActive(false);
         panelIns.SetActive(false);
+        t1.SetActive(false);
+        t2.SetActive(false);
+        t3.SetActive(false);
+        t4.SetActive(false);
+        t5.SetActive(false);
+        t7.SetActive(false);
     }
 }

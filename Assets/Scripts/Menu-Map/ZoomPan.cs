@@ -6,7 +6,7 @@ public class ZoomPan : MonoBehaviour
 {
     Vector3 dragOrigen;
     private float mapMinY = -5;
-    private float mapMaxY = 20;
+    private float mapMaxY = 18;
     
     // Start is called before the first frame update
     void Start()
