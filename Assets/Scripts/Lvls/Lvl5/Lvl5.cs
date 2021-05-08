@@ -43,8 +43,8 @@ public class Lvl5 : MonoBehaviour
         once = true;
         once2 = true;
         gameOver = false;
-        counter = 5;
-        counterText.text = "5";
+        counter = 8;
+        counterText.text = "8";
         state = 0;
         estrelles = 0;
         pause.SetActive(false);
@@ -54,6 +54,7 @@ public class Lvl5 : MonoBehaviour
     }
 
     public void startGame(){
+        counter = 8;
 
         for (int i = 0; i < paraules.Count; ++i){
             GameObject temp = paraules[i];
@@ -178,16 +179,15 @@ public class Lvl5 : MonoBehaviour
 
     public void updateScore(int min, int sec, int points, int errors){
 
-        
         if (!gameOver){
-            if (min < 1 || (min == 1 && sec <= 30) && (counter == 4 || counter == 5)) { //3 estrella
+            if ((min < 1 || (min == 1 && sec <= 30)) && (counter == 8 || counter == 7 || counter == 6)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 insignea.SetActive(true);
                 estrelles = 3;
             }
-            else if ((min >= 2 && sec <= 30) && counter == 3) { //2 estrellas
+            else if ((min >= 2 && sec <= 30) || (counter == 5 || counter == 4 || counter == 3)) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 insignea.SetActive(true);

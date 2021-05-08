@@ -36,6 +36,7 @@ public class Lvl2 : MonoBehaviour
         time = 0;
         points = 0;
         errors = 0;
+        counter = 5;
         introexp.SetActive(false);
 
         for (int i = 0; i < peces.Count; ++i){

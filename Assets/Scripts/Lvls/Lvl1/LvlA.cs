@@ -48,6 +48,8 @@ public class LvlA : MonoBehaviour
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
     public void startGame(){
 
+        counter = 5;
+
         for (int i = 0; i < cards.Count; ++i){
             GameObject temp = cards[i];
             int randomIndex = Random.Range(i, cards.Count);

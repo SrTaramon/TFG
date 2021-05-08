@@ -41,6 +41,7 @@ public class Lvl3 : MonoBehaviour
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
     public void startGame(){
 
+        counter = 5;
         time = 0;
         points = 0;
         errors = 0;

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,13 +8,15 @@ using UnityEngine.SceneManagement;
 public class Lvl7 : MonoBehaviour
 {
 
-    private List<string> paraules;
+    public static List<int> parella;
+
+    public List<GameObject> posicions, cartes, backs;
 
     private GameObject activeCard;
 
     public static bool active;
 
-    public static int cardCount, points, errors, counter;
+    public static int clickCount, points, errors, counter;
 
     private int previousCount;
 
@@ -22,11 +25,13 @@ public class Lvl7 : MonoBehaviour
     public Text  timer, finalTime, counterText;
 
     private int min, sec, estrelles;
-    private int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
+    public static int state; //0 = intro, 1 = intro, 2 = game, 3 = outro
 
     public GameObject action, game, outro, pause, introexp, star1, star2, star3, record, insignea;
 
-    private bool done, restart, gameOver, once;
+    private bool done, restart, gameOver, once, once2;
+
+    public static GameObject card1, card2;
 
     // Start is called before the first frame update
     void Start(){
@@ -39,12 +44,16 @@ public class Lvl7 : MonoBehaviour
 
     private void cleanLvl()
     {
+        parella = new List<int>();
+        restart = false;
         once = true;
         gameOver = false;
-        counter = 5;
+        counter = 8;
         counterText.text = "5";
         state = 0;
         estrelles = 0;
+        once2 = false;
+        clickCount = 0;
         pause.SetActive(false);
         action.SetActive(false);
         game.SetActive(false);
@@ -53,13 +62,23 @@ public class Lvl7 : MonoBehaviour
 
     public void startGame(){
 
-        paraules = new List<string>(new string[] { "OVARIOS", "CLITORIS", "UTERO", "VAGINA", "TESTICULOS", "PROSTATA", "GLANDE", "URETRA"});
+        counter = 8;
 
-        for (int i = 0; i < paraules.Count; ++i){
-            string temp = paraules[i];
-            int randomIndex = Random.Range(i, paraules.Count);
-            paraules[i] = paraules[randomIndex];
-            paraules[randomIndex] = temp;
+        if (restart){
+            deleteCards();
+            taparCards();
+            restart = false;
+        }
+
+        for (int i = 0; i < cartes.Count; ++i){
+            GameObject temp = cartes[i];
+            int randomIndex = Random.Range(i, cartes.Count);
+            cartes[i] = cartes[randomIndex];
+            cartes[randomIndex] = temp;
+        }
+
+        for (int j = 0; j < posicions.Count; ++j){
+            Instantiate (cartes[j], posicions[j].transform.position, Quaternion.identity);
         }
 
         time = 0;
@@ -85,11 +104,11 @@ public class Lvl7 : MonoBehaviour
                 gameAction();
                 break;
             case 2:
-                game.SetActive(false);
                 action.SetActive(false);
                 pause.SetActive(true);
                 break;
             case 3:
+                deleteCards();
                 updateScore(min, sec, points, errors);
                 game.SetActive(false);
                 action.SetActive(false);
@@ -99,9 +118,17 @@ public class Lvl7 : MonoBehaviour
                 break;
         }
 
+        if (clickCount == 2){
+            comprobarParella();
+        }
+
+        if (points == 5){
+            state = 3;
+        }
+
         //Timer
         if (state == 1){
-             time += Time.deltaTime;
+            time += Time.deltaTime;
 
             min = Mathf.FloorToInt(time / 60);
             sec = Mathf.FloorToInt(time % 60);
@@ -114,6 +141,41 @@ public class Lvl7 : MonoBehaviour
          
     }
 
+    void comprobarParella() {
+        
+        if (clickCount != 0){
+            int carta1 = parella[0];
+            int carta2 = parella[1];
+            if (cartes[carta1].tag ==  cartes[carta2].tag){
+                FindObjectOfType<AudioManager>().Play("Correct");
+                ++points;
+                parella.RemoveAt(1);
+                parella.RemoveAt(0);
+            } else {
+                FindObjectOfType<AudioManager>().Play("Wrong");
+                --counter;
+                StartCoroutine(waitForError());
+            }
+
+            clickCount = 0;
+        }
+    }
+
+    private void deleteCards() {
+        for (int x = 1; x <= 5; ++x){
+            for (int t = 1; t <= 2; ++t){
+                string name = x.ToString() + t.ToString() + "(Clone)";
+                GameObject g = GameObject.Find(name);
+                Destroy(g);
+            }
+        }
+    }
+
+    void taparCards(){
+        for (int i = 0; i < backs.Count; ++i){
+            backs[i].SetActive(true);
+        }
+    }
     private void gameAction() {
     }
 
@@ -129,11 +191,22 @@ public class Lvl7 : MonoBehaviour
 
     public void restartLvl(){
         pause.SetActive(false);
+        restart = true;
         startGame();
     }
 
     public void pauseActive(){
         state = 2;
+    }
+
+    IEnumerator waitForError(){
+        yield return new WaitForSeconds(1);
+
+        backs[parella[0]].SetActive(true);
+        backs[parella[1]].SetActive(true);
+
+        parella.RemoveAt(1);
+        parella.RemoveAt(0);
     }
 
     IEnumerator waitForGameOver(){
@@ -153,14 +226,14 @@ public class Lvl7 : MonoBehaviour
 
         //mitja test1 1:26min
         if (!gameOver){
-            if (min < 1 || (min == 1 && sec <= 20) && (counter == 4 || counter == 5)) { //3 estrella
+            if ((min < 1 || (min == 1 && sec <= 20)) && (counter == 8 || counter == 7)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 insignea.SetActive(true);
                 estrelles = 3;
             }
-            else if (min < 2 && counter == 3) { //2 estrellas
+            else if (min < 2 && counter == 3 && (counter == 6 || counter == 5 || counter == 4 || counter == 3)) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 insignea.SetActive(true);
@@ -197,15 +270,15 @@ public class Lvl7 : MonoBehaviour
     private void saveScore(int estrelles, int temps){
         if (estrelles != 0){
             SaveData.current = SerializationManager.Load();
-            if (SaveData.current.temps5 == 0){
-                SaveData.current.temps5 = temps;
+            if (SaveData.current.temps7 == 0){
+                SaveData.current.temps7 = temps;
                 record.SetActive(true);
             }
-            else if (temps < SaveData.current.temps5){
-                SaveData.current.temps5 = temps;
+            else if (temps < SaveData.current.temps7){
+                SaveData.current.temps7 = temps;
                 record.SetActive(true);
             }
-            if (estrelles > SaveData.current.estrelles5) SaveData.current.estrelles5 = estrelles;
+            if (estrelles > SaveData.current.estrelles7) SaveData.current.estrelles7 = estrelles;
                 SerializationManager.Save(SaveData.current);
         }
     }

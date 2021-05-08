@@ -43,6 +43,11 @@ TagManager:
   - X
   - Y
   - Z
+  - Parella1
+  - Parella2
+  - Parella3
+  - Parella4
+  - Parella5
   layers:
   - Default
   - TransparentFX
