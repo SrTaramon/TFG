@@ -24,6 +24,16 @@ public class Insigneas : MonoBehaviour
             SaveData.current = SerializationManager.Load();
         }
 
+        SaveData.current.new1 = false;
+        SaveData.current.new2 = false;
+        SaveData.current.new3 = false;
+        SaveData.current.new4 = false;
+        SaveData.current.new5 = false;
+        SaveData.current.new7 = false;
+
+        SerializationManager.Save(SaveData.current);
+        
+
         if (SaveData.current.estrelles1 != 0){
             i1.SetActive(true);
             celebration = true;

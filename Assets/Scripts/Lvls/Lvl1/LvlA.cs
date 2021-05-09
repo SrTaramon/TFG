@@ -254,8 +254,11 @@ public class LvlA : MonoBehaviour
                 SaveData.current.temps1 = temps;
                 record.SetActive(true);
             }
-            if (estrelles > SaveData.current.estrelles1) SaveData.current.estrelles1 = estrelles;
-                SerializationManager.Save(SaveData.current);
+            if (estrelles > SaveData.current.estrelles1){
+                SaveData.current.estrelles1 = estrelles;
+                SaveData.current.new1 = true;
+            }
+            SerializationManager.Save(SaveData.current);
         }
     }
    

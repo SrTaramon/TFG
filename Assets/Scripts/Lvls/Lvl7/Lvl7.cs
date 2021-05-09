@@ -35,7 +35,6 @@ public class Lvl7 : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-
         time = 0;
         cleanLvl();
         introexp.SetActive(true);
@@ -44,6 +43,7 @@ public class Lvl7 : MonoBehaviour
 
     private void cleanLvl()
     {
+        points = 0;
         parella = new List<int>();
         restart = false;
         once = true;
@@ -226,14 +226,14 @@ public class Lvl7 : MonoBehaviour
 
         //mitja test1 1:26min
         if (!gameOver){
-            if ((min < 1 || (min == 1 && sec <= 20)) && (counter == 8 || counter == 7)) { //3 estrella
+            if ((min < 1 || (min == 1 && sec <= 20)) && (counter == 8 || counter == 7 || counter == 6)) { //3 estrella
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
                 insignea.SetActive(true);
                 estrelles = 3;
             }
-            else if (min < 2 && counter == 3 && (counter == 6 || counter == 5 || counter == 4 || counter == 3)) { //2 estrellas
+            else if (min < 2 && (counter == 5 || counter == 4 || counter == 3)) { //2 estrellas
                 star1.SetActive(true);
                 star2.SetActive(true);
                 insignea.SetActive(true);
@@ -278,8 +278,11 @@ public class Lvl7 : MonoBehaviour
                 SaveData.current.temps7 = temps;
                 record.SetActive(true);
             }
-            if (estrelles > SaveData.current.estrelles7) SaveData.current.estrelles7 = estrelles;
-                SerializationManager.Save(SaveData.current);
+            if (estrelles > SaveData.current.estrelles7){
+                SaveData.current.estrelles7 = estrelles;
+                SaveData.current.new7 = true;
+            }
+            SerializationManager.Save(SaveData.current);
         }
     }
 }
