@@ -2781,6 +2781,7 @@ MonoBehaviour:
   blvl5: {fileID: 1040170767}
   blvl7: {fileID: 696126578}
   lvlCompleted: {fileID: 19620768}
+  button: {fileID: 10470521}
   On: {fileID: -7900347571726875524, guid: 65d252f39203bc34c854fa88afca2da5, type: 3}
   Off: {fileID: 7189817645919965353, guid: 65d252f39203bc34c854fa88afca2da5, type: 3}
 --- !u!1 &831740865 stripped

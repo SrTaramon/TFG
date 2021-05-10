@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
     }
 
     void Start() {
-        if (SceneManager.GetActiveScene().name == "Map" || SceneManager.GetActiveScene().name == "Intro" || SceneManager.GetActiveScene().name == "Start") Play("Theme");
+        //if (SceneManager.GetActiveScene().name == "Map" || SceneManager.GetActiveScene().name == "Intro" || SceneManager.GetActiveScene().name == "Start") Play("Theme");
     }
 
     public void Play (string name){

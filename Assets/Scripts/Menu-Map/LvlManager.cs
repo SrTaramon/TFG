@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LvlManager : MonoBehaviour
 {
 
-    public GameObject a1, a2, a3, a4, al1, al2, al3, al4, m1, m2, m3, m4, m5, m7, lvl2, lvl7, b1lvl7, b2lvl7, b3lvl7, b4lvl7, b5lvl7, lvl5, b1lvl5, b2lvl5, b3lvl5, b4lvl5, b5lvl5, blvl5, blvl7, lvlCompleted;
+    public GameObject a1, a2, a3, a4, al1, al2, al3, al4, m1, m2, m3, m4, m5, m7, lvl2, lvl7, b1lvl7, b2lvl7, b3lvl7, b4lvl7, b5lvl7, lvl5, b1lvl5, b2lvl5, b3lvl5, b4lvl5, b5lvl5, blvl5, blvl7, lvlCompleted, button;
 
     private bool once;
 
@@ -23,16 +23,25 @@ public class LvlManager : MonoBehaviour
         if (soundON){
             FindObjectOfType<AudioManager>().Stop("Theme");
             b.GetComponent<Image>().sprite = Off;
+            SaveData.current.soundON = false;
         } else {
             FindObjectOfType<AudioManager>().Play("Theme");
             b.GetComponent<Image>().sprite = On;
+            SaveData.current.soundON = true;
         }
         soundON = !soundON;
     }
     // Start is called before the first frame update
     void Start(){
-        soundON = true;
-        once = true;
+        soundON = SaveData.current.soundON;
+        if (soundON){
+            FindObjectOfType<AudioManager>().Play("Theme");
+            button.GetComponent<Image>().sprite = On;
+        } else {
+            FindObjectOfType<AudioManager>().Stop("Theme");
+            button.GetComponent<Image>().sprite = Off;
+        }
+
         SaveData.current = SerializationManager.Load();
         switch (SaveData.current.selectedAvatar){
             case 1:
@@ -57,7 +66,7 @@ public class LvlManager : MonoBehaviour
 
         if (SaveData.current.estrelles1 != 0){
             m1.SetActive(true);
-            if (!SaveData.current.desblo5){
+          //  if (!SaveData.current.desblo5){
                 lvl5.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 lvl5.gameObject.tag = "NoBloc";
                 blvl5.GetComponent<SpriteRenderer>().color = new Color(0.745283f, 0.3388749f, 0.2348344f, 1f);
@@ -66,8 +75,8 @@ public class LvlManager : MonoBehaviour
                 b3lvl5.GetComponent<SpriteRenderer>().color = new Color(0.9058f, 0.4156f, 0.2901f, 1f);
                 b4lvl5.GetComponent<SpriteRenderer>().color = new Color(0.9058f, 0.4156f, 0.2901f, 1f);
                 b5lvl5.GetComponent<SpriteRenderer>().color = new Color(0.9058f, 0.4156f, 0.2901f, 1f);
-                SaveData.current.desblo5 = true;
-            }
+            //    SaveData.current.desblo5 = true;
+            //}
         } 
         else m1.SetActive(false);
         if (SaveData.current.estrelles2 != 0){
@@ -87,7 +96,7 @@ public class LvlManager : MonoBehaviour
         else m2.SetActive(false);
         if (SaveData.current.estrelles3 != 0){
             m3.SetActive(true);
-            if (!SaveData.current.desblo7){
+            //if (!SaveData.current.desblo7){
                 lvl7.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 lvl7.gameObject.tag = "NoBloc";
                 blvl7.GetComponent<SpriteRenderer>().color = new Color(0.9339623f, 0.7135811f, 0.01321642f, 1f);
@@ -96,8 +105,8 @@ public class LvlManager : MonoBehaviour
                 b3lvl7.GetComponent<SpriteRenderer>().color = new Color(0.882353f, 0.6666667f, 0.01176471f, 1f);
                 b4lvl7.GetComponent<SpriteRenderer>().color = new Color(0.882353f, 0.6666667f, 0.01176471f, 1f);
                 b5lvl7.GetComponent<SpriteRenderer>().color = new Color(0.882353f, 0.6666667f, 0.01176471f, 1f);
-                SaveData.current.desblo7 = true;
-            }
+              //  SaveData.current.desblo7 = true;
+            //}
         } 
         else m3.SetActive(false);
         if (SaveData.current.estrelles4 != 0) m4.SetActive(true);
