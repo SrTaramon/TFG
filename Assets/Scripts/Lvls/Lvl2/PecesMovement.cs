@@ -125,7 +125,7 @@ public class PecesMovement : MonoBehaviour
     void OnMouseUp(){
         if (!bingo){
             if (inside){
-                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
+                if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
                 ++Lvl2.numCorPieces;
                 bingo = true;
                 goodMove = true;
@@ -134,7 +134,7 @@ public class PecesMovement : MonoBehaviour
                 --Lvl2.counter;
                 badMove = true;
                 goodMove = false;
-                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
                 Handheld.Vibrate();
             }
             dropPosition = transform.position;

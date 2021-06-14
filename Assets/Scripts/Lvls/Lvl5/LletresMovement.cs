@@ -108,7 +108,7 @@ public class LletresMovement : MonoBehaviour
     void OnMouseUp(){
         if (!bingo){
             if (inside){
-                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
+                if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
                 ++Lvl5.lletresColocades;
                 bingo = true;
                 goodMove = true;
@@ -118,7 +118,7 @@ public class LletresMovement : MonoBehaviour
                 --Lvl5.counter;
                 badMove = true;
                 goodMove = false;
-                if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
                 Handheld.Vibrate();
             }
             dropPosition = transform.position;

@@ -7,9 +7,6 @@ public class ImgMovement : MonoBehaviour
     private Vector3 touchPosition;
 
     private Vector3 offset;
-    private Rigidbody2D rb;
-
-    private Vector3 direction;
 
     //private float speed = 10f;
 
@@ -22,7 +19,6 @@ public class ImgMovement : MonoBehaviour
         correct = false;
         error = false;
         alive = true;
-        rb = GetComponent<Rigidbody2D>();
         aniContl = GetComponent<Animator>();
     }
 

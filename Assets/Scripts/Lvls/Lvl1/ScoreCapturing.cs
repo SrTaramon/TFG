@@ -14,13 +14,13 @@ public class ScoreCapturing : MonoBehaviour
                     destroyCard(col);
                     ImgMovement.correct = true;
                     ++LvlA.points;
-                    if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
+                    if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
                 } else {
                     destroyCard(col);
                     ImgMovement.error = true;
                     --LvlA.counter;
                     ++LvlA.errors;
-                    if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                    if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
                     Handheld.Vibrate();
                 }
             break;
@@ -29,13 +29,13 @@ public class ScoreCapturing : MonoBehaviour
                     destroyCard(col);
                     ImgMovement.correct = true;
                     ++LvlA.points;
-                    if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
+                    if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Correct");
                 } else {
                     destroyCard(col);
                     --LvlA.counter;
                     ImgMovement.error = true;
                     ++LvlA.errors;
-                    if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
+                    if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Wrong");
                     Handheld.Vibrate();
                 }
             break;

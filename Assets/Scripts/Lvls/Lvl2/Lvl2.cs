@@ -27,7 +27,7 @@ public class Lvl2 : MonoBehaviour
         numCorPieces = 0;
         cleanLvl();
         introexp.SetActive(true);
-        if (LvlManager.soundON) FindObjectOfType<AudioManager>().Play("Background");
+        if (MapManager.soundON) FindObjectOfType<AudioManager>().Play("Background");
     }
 
     //En auqesta funció primer ordener de manera random la llista de cartes, cambiem d'estat i instanciem la primera carta
@@ -178,7 +178,7 @@ public class Lvl2 : MonoBehaviour
             }
 
             if (once){
-                if (LvlManager.soundON) {
+                if (MapManager.soundON) {
                     FindObjectOfType<AudioManager>().Stop("Background");
                     FindObjectOfType<AudioManager>().Play("Celebration");
                 }
@@ -186,7 +186,7 @@ public class Lvl2 : MonoBehaviour
             }
         } else {
             if (once){
-                if (LvlManager.soundON) {
+                if (MapManager.soundON) {
                     FindObjectOfType<AudioManager>().Stop("Background");
                     FindObjectOfType<AudioManager>().Play("Ohh");
                 }

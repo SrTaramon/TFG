@@ -205,7 +205,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 823797938}
-        m_TargetAssemblyTypeName: LvlManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
         m_MethodName: changeSound
         m_Mode: 2
         m_Arguments:
@@ -2765,7 +2765,6 @@ MonoBehaviour:
   m4: {fileID: 1576275313}
   m5: {fileID: 295834617}
   m7: {fileID: 1142215351}
-  lvl2: {fileID: 388311807}
   lvl7: {fileID: 696126579}
   b1lvl7: {fileID: 2105877719}
   b2lvl7: {fileID: 961366506}
@@ -4921,7 +4920,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 823797938}
-        m_TargetAssemblyTypeName: LvlManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
         m_MethodName: goToInsigneas
         m_Mode: 1
         m_Arguments:

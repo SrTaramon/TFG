@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LvlManager : MonoBehaviour
+public class MapManager : MonoBehaviour
 {
 
-    public GameObject a1, a2, a3, a4, al1, al2, al3, al4, m1, m2, m3, m4, m5, m7, lvl2, lvl7, b1lvl7, b2lvl7, b3lvl7, b4lvl7, b5lvl7, lvl5, b1lvl5, b2lvl5, b3lvl5, b4lvl5, b5lvl5, blvl5, blvl7, lvlCompleted, button;
+    public GameObject a1, a2, a3, a4, al1, al2, al3, al4, m1, m2, m3, m4, m5, m7, lvl7, b1lvl7, b2lvl7, b3lvl7, b4lvl7, b5lvl7, lvl5, b1lvl5, b2lvl5, b3lvl5, b4lvl5, b5lvl5, blvl5, blvl7, lvlCompleted, button;
 
     private bool once;
 
@@ -81,17 +81,6 @@ public class LvlManager : MonoBehaviour
         else m1.SetActive(false);
         if (SaveData.current.estrelles2 != 0){
             m2.SetActive(true);
-            // if (!SaveData.current.desblo6){
-            //     lvl6.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            //     lvl6.gameObject.tag = "NoBloc";
-            //     blvl6.GetComponent<SpriteRenderer>().color = new Color(0.754717f, 0.2876469f, 0.5737274f);
-            //     b1lvl6.GetComponent<SpriteRenderer>().color = new Color(0.9254f, 0.4862f, 0.6901f, 1f);
-            //     b2lvl6.GetComponent<SpriteRenderer>().color = new Color(0.9254f, 0.4862f, 0.6901f, 1f);
-            //     b3lvl6.GetComponent<SpriteRenderer>().color = new Color(0.9254f, 0.4862f, 0.6901f, 1f);
-            //     b4lvl6.GetComponent<SpriteRenderer>().color = new Color(0.9254f, 0.4862f, 0.6901f, 1f);
-            //     b5lvl6.GetComponent<SpriteRenderer>().color = new Color(0.9254f, 0.4862f, 0.6901f, 1f);
-            //     SaveData.current.desblo6 = true;
-            // }
         } 
         else m2.SetActive(false);
         if (SaveData.current.estrelles3 != 0){
