@@ -101,7 +101,6 @@ public class Lvl7 : MonoBehaviour
             case 1:
                 game.SetActive(true);
                 action.SetActive(true);
-                gameAction();
                 break;
             case 2:
                 action.SetActive(false);
@@ -175,8 +174,6 @@ public class Lvl7 : MonoBehaviour
         for (int i = 0; i < backs.Count; ++i){
             backs[i].SetActive(true);
         }
-    }
-    private void gameAction() {
     }
 
     public void endLvl(){

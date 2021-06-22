@@ -16,7 +16,7 @@ public class CardClick : MonoBehaviour
     }
 
     void OnMouseDown() {
-        if (Lvl7.clickCount < 2){
+        if (Lvl7.clickCount <= 2){
             gameObject.SetActive(false);
             int carta = Int32.Parse(gameObject.name);
             Lvl7.parella.Add(--carta);

@@ -10,7 +10,7 @@ public class SerializationManager
         
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/player.save";
+        string path = Application.persistentDataPath + "/playerData.save";
 
         FileStream file = new FileStream(path, FileMode.Create);
 
@@ -21,7 +21,7 @@ public class SerializationManager
 
     public static SaveData Load(){
         
-        string path = Application.persistentDataPath + "/player.save";
+        string path = Application.persistentDataPath + "/playerData.save";
         Debug.Log(path);
         if (File.Exists(path)){
             BinaryFormatter formatter = new BinaryFormatter();
